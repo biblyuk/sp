@@ -6,6 +6,7 @@
     "express": "2.5.5",
     "ejs": ">= 0.0.1",
     "socket.io": "~0.9.6",
-    "express-expose": "~0.2.2"
+    "express-expose": "~0.2.2",
+    "async": "~0.1.18"
   }
 }
