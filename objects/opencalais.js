@@ -10,7 +10,7 @@ var
 http = require('http'),
 
 apiKey = require('./apikeys').opencalais,
-queue = new require('./base/list');
+queue = new require('../base/list.js');
 
 function consume() {
 	var last = queue.last;

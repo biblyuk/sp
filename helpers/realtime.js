@@ -12,7 +12,7 @@ exports.init = function(app) {
 console.log('init');
 	io.sockets.on('connection', function (socket) {
 
-// 		console.log('connection', socket);
+		//console.log('connection', socket);
 
 
 
