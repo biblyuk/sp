@@ -1,15 +1,9 @@
 var
 
-realtime          = require('../helpers/realtime.js'),
-tempalateCompiler = require('../helpers/templateCompiler'),
-Weibo             = require('../objects/weibo.js'),
-ft                = require('../objects/ft.js');
-
 realtime         = require('../helpers/realtime.js'),
-templateCompiler = require('../helpers/templateCompiler'),
-Weibo            = require('../objects/weibo.js')
-
-;
+templateCompiler = require('../helpers/templatecompiler.js'),
+Weibo            = require('../objects/weibo.js'),
+ft               = require('../objects/ft.js');
 
 /*
  * GET home page.

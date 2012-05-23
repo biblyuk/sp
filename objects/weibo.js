@@ -1,4 +1,4 @@
-var 
+var
 
 weibo = require('weibo');
 openCalais = require ('./opencalais.js'),
@@ -19,5 +19,5 @@ exports.startStream = function startStream() {
 	    }
 	});
 
-	
+
 };
