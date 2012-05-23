@@ -16,33 +16,6 @@ emtr    = new events.EventEmitter();
 module.exports = emtr;
 
 
-/**
- * Handle the response from a search API request.
- *
- * @param {Object} error
- * @param {Object} response
- * @param {Object} body
- * @param {Object} conversation
- */
-function handleSearchResponse(error, response, body, conversation) {
-
-	if (!body || !body.results) {
-		return;
-	}
-
-	body.results[0].results.forEach(function _processResults(item) {
-
-		conversation.ft.push({
-			title:       item.title,
-			summary:     item.summary,
-			publishDate: item.lifecycle.initialPublishDateTime,
-			url:         item.location.uri
-		});
-	});
-
-	emtr.emit('processed', conversation);
-}
-
 
 /**
  * Search the content API for articles relevant to the given conversation.
@@ -132,7 +105,8 @@ function search(conversation) {
 
 	queryString += ' AND (initialPublishDateTime:>2012-05-16T00:00:00Z)';
 
-	request({
+	request(
+		{
 			method: "POST",
 			uri: "http://api.ft.com/content/search/v1?apiKey=" + apiKey,
 			json: {
@@ -147,9 +121,32 @@ function search(conversation) {
 		},
 
 		function _resp(error, response, body) {
-			handleSearchResponse(error, response, body, conversation);
-	});
+
+			if (response && response.statusCode == 200) {
+
+				body.results[0].results.forEach(function _processResults(item) {
+					queue.append(item.location.uri);
+				});
+
+				_loadFullContent(conversation, queue);
+
+			} else {
+				console.log('error: '+ ((response && response.statusCode) || '(unknown)'));
+				console.log(body);
+			}
+		}
+	);
 
 }
+
+function _loadFullContent(conversation, queue) {
+
+	conversation.ft.forEach(function _loadFull(article) {
+
+	});
+
+	emtr.emit('processed', conversation);
+}
+
 
 emtr.search = search;
