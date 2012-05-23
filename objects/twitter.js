@@ -7,17 +7,21 @@ exports.startStream = function startStream() {
     twit.stream('user', function(stream) {
      stream.on('data', function (tweet) { 
        if (!tweet.text) return;
-       openCalais.send({
-       		provider: 'twitter',
-        	message: tweet.text,
-        	timestamp: new Date(tweet.created_at).getTime(),
-        	user: {
-        		realname: tweet.user.name,
-        		username: tweet.user.screen_name,
-            location: tweet.user.location,
-            avatar: tweet.user.profile_image_url
-        	}
-        })
+       try {
+         openCalais.send({
+         		provider: 'twitter',
+          	message: tweet.text,
+          	timestamp: new Date(tweet.created_at).getTime(),
+          	user: {
+          		realname: tweet.user.name,
+          		username: tweet.user.screen_name,
+              location: tweet.user.location,
+              avatar: tweet.user.profile_image_url
+          	}
+          });
+       } catch (e) {
+        console.log("Error sending tweet to openCalais: ", e);
+       }
       });
       stream.on('end', function (response) {
         console.log("Twitter stream disconnected")
