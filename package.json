@@ -7,7 +7,7 @@
     "ejs": ">= 0.0.1",
     "socket.io": "~0.9.6",
     "request": "~2.9.202",
-    "ntwitter": "~0.3.0"
+    "ntwitter": "~0.3.0",
     "express-expose": "~0.2.2",
     "async": "~0.1.18"
   }
