@@ -5,6 +5,9 @@
   "dependencies": {
     "express": "2.5.5",
     "ejs": ">= 0.0.1",
-    "socket.io": "~0.9.6"
-   }
+    "socket.io": "~0.9.6",
+    "request": "~2.9.202",
+    "twitter-node": "0.0.2",
+    "ntwitter": "~0.3.0"
+  }
 }
