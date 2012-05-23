@@ -22,6 +22,6 @@ exports.index = function(req, res){
  * GET test trigger for IO update
  */
 exports.test = function(req, res) {
-	realtime.broadcastSocial('this message is going out to all users');
+	Weibo.startStream();
 	res.send('Done');
 };
