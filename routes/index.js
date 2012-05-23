@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-	res.render('index', { title: 'Shortest Path' })
+	res.render('index', { title: 'Shortest Path' });
 };
