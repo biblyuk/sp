@@ -22,7 +22,8 @@ exports.testapi = function(req, res) {
 			{}
 		],
 		tags: [
-			"David Cameron"
+			"David Cameron", "banks"
 		]
 	});
+	res.send('Done');
 };
