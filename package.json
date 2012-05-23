@@ -5,6 +5,7 @@
   "dependencies": {
     "express": "2.5.5",
     "ejs": ">= 0.0.1",
-    "socket.io": "~0.9.6"
-   }
+    "socket.io": "~0.9.6",
+    "express-expose": "~0.2.2"
+  }
 }
