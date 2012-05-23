@@ -8,7 +8,7 @@
 var 
 
 http = require('http'),
-List = require('./base/list'),
+List = require('../base/list'),
 apiKey = require('./apikeys').opencalais,
 queue = new List(),
 sent = new List();
