@@ -1,12 +1,11 @@
-var openCalais = {send: function (data) {console.log(data);}};//require ('openCalais');
+var openCalais = require ('./opencalais.js');
 var apiKeys = require('./apikeys.js');
 var ntwitter = require('ntwitter');
 var twit = new ntwitter(apiKeys.twitter);
 var stream;
 exports.startStream = function startStream() {
-	console.log("start a stream from twitter");
     twit.stream('user', function(stream) {
-     stream.on('data', function (tweet) {
+     stream.on('data', function (tweet) { 
        if (!tweet.text) return;
        openCalais.send({
        		provider: 'twitter',
