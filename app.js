@@ -21,6 +21,7 @@ app.configure(function(){
 	app.use(express.methodOverride());
 	app.use(app.router);
 	app.use('/static', express['static'](__dirname + '/static'));
+	app.use('/templates', express['static'](__dirname + '/templates'));
 
 
 	// Init realtime stuff
@@ -40,5 +41,5 @@ app.configure('production', function(){
 app.get('/', routes.index);
 app.get('/test', routes.test);
 
-app.listen(3000);
+app.listen(5000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

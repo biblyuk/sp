@@ -1,20 +1,22 @@
+var openCalais = {send: function (data) {console.log(data);}};//require ('openCalais');
+var apiKeys = require('./apikeys.js');
 var ntwitter = require('ntwitter');
-var openCalais = require ('openCalais');
-
-var twit = new ntwitter(keys);
+var twit = new ntwitter(apiKeys.twitter);
 var stream;
 exports.startStream = function startStream() {
 	console.log("start a stream from twitter");
     twit.stream('user', function(stream) {
-      stream.on('data', function (tweet) {
-        console.log(data);
-        openCalais.send({
+     stream.on('data', function (tweet) {
+       if (!tweet.text) return;
+       openCalais.send({
        		provider: 'twitter',
         	message: tweet.text,
         	timestamp: new Date(tweet.created_at).getTime(),
         	user: {
         		realname: tweet.user.name,
         		username: tweet.user.screen_name,
+            location: tweet.user.location,
+            avatar: tweet.user.profile_image_url
         	}
         })
       });
