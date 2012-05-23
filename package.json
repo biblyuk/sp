@@ -9,6 +9,7 @@
     "request": "~2.9.202",
     "ntwitter": "~0.3.0",
     "express-expose": "~0.2.2",
-    "async": "~0.1.18"
+    "async": "~0.1.18",
+    "weibo": "~0.3.2"
   }
 }
