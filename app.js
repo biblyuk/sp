@@ -6,11 +6,11 @@
 var express = require('express'),
 	routes = require('./routes'),
 	helpers = require('./helpers'),
-	Twitter = require("./objects/twitter.js"),
-	Weibo = require("./objects/weibo.js")
+	Twitter = require("./objects/twitter.js")
 	;
 
 Twitter.startStream();
+
 
 var app = module.exports = express.createServer();
 

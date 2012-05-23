@@ -1,7 +1,10 @@
 var
 
 realtime = require('../helpers/realtime.js'),
-tempalateCompiler = require('../helpers/templateCompiler');
+templateCompiler = require('../helpers/templateCompiler'),
+Weibo = require('../objects/weibo.js')
+
+;
 
 /*
  * GET home page.
@@ -9,7 +12,7 @@ tempalateCompiler = require('../helpers/templateCompiler');
 exports.index = function(req, res){
 
 
-	tempalateCompiler.compile(function(templates) {
+	templateCompiler.compile(function(templates) {
 
 		res.render('index', {
 			title: 'Shortest Path',
