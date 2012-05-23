@@ -12,6 +12,7 @@ exports.search = function search(conversation) {
 	conversation.ft = [];
 
 
+
 /*
 	Valid query fields:
 
@@ -81,9 +82,9 @@ exports.search = function search(conversation) {
 
  	queryString += ' AND (initialPublishDateTime:>2012-05-16T00:00:00Z)';
 
-	request.post(
-		"http://api.ft.com/content/search/v1?apiKey=" + apiKey,
-		{
+	request({
+			method: "POST",
+			uri: "http://api.ft.com/content/search/v1?apiKey=" + apiKey,
 			json: {
 				"queryString": queryString,
 				"queryContext" : {
@@ -97,13 +98,14 @@ exports.search = function search(conversation) {
 
 		function _resp(error, response, body) {
 			_handleSearchResponse(error, response, body, conversation);
-		}
-	);
+	});
 
 }
 
 
 function _handleSearchResponse(error, response, body, conversation) {
+
+	if (!body.results) return;
 
 	body.results[0].results.forEach(function _processResults(item) {
 

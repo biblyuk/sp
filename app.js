@@ -42,7 +42,6 @@ app.configure('production', function(){
 
 app.get('/', routes.index);
 app.get('/test', routes.test);
-app.get('/testapi', routes.testapi);
 
 app.listen(5000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

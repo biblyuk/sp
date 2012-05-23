@@ -1,6 +1,5 @@
 var
 
-realtime         = require('../helpers/realtime.js'),
 templateCompiler = require('../helpers/templatecompiler.js'),
 Weibo            = require('../objects/weibo.js'),
 ft               = require('../objects/ft.js');

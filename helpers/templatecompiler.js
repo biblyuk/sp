@@ -11,7 +11,7 @@ exports.compile = function(callback) {
 
 
 	fs.readFile('exports.compile',  root + '_conversation.ejs', function(err, result) {
-		console.log(result);
+		console.log('template compilation result:', result);
 	});
 
 
