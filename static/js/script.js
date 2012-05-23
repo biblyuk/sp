@@ -1,13 +1,13 @@
 
 
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect('/');
 
 function streamUpdate(object) {
 
 	/**
 	 * TODO:MA:20120523 This is where we would add the latest social updates to the UI
 	 */
-	
+
 }
 
 function articleUpdate(object) {
