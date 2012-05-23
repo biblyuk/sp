@@ -1,22 +1,15 @@
 var
 
 request = require('request'),
-apiKey = require('./apikeys').ftapi;
+helpers = require('../helpers'),
+apiKey  = require('./apikeys').ftapi;
 
 
 exports.search = function search(conversation) {
 
 	var queryString = '"' + conversation.tags.join('" AND "') + '"';
 
-/*
-	{
-		"queryString": queryString,
-		"queryContext" : {
-			"curations" : [ "ARTICLES"]
-		}
-	}
- */
-
+	conversation.ft = [];
 
 	request.post(
 		"http://api.ft.com/content/search/v1?apiKey=" + apiKey,
@@ -28,8 +21,18 @@ exports.search = function search(conversation) {
 				}
 			}
 		},
-		function(error, response, body) {
-			console.log(response);
+
+		function _handleSearchResponse(error, response, body) {
+
+			body.results[0].results.forEach(function _processResults(item) {
+
+				conversation.ft.push({
+					title: item.title,
+					summary: item.summary
+				});
+			});
+
+			helpers.realtime.broadcastConversation(conversation);
 		}
 	);
 

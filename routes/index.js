@@ -17,25 +17,17 @@ exports.index = function(req, res){
 			title: 'Shortest Path',
 			templates: templates
 		});
-	});
-};
 
-/*
- * GET test trigger for IO update
- */
-exports.test = function(req, res) {
-	realtime.broadcastSocial('this message is going out to all users');
-	res.send('Done');
-};
+		var mockConversation = {
+			social: [
+				{}
+			],
+			tags: [
+				"David Cameron", "banks"
+			]
+		};
 
-exports.testapi = function(req, res) {
-	ft.search({
-		social: [
-			{}
-		],
-		tags: [
-			"David Cameron", "banks"
-		]
+		ft.search(mockConversation);
+
 	});
-	res.send('Done');
 };
