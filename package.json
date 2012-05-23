@@ -6,12 +6,9 @@
     "express": "2.5.5",
     "ejs": ">= 0.0.1",
     "socket.io": "~0.9.6",
-<<<<<<< HEAD
     "request": "~2.9.202",
-    "twitter-node": "0.0.2",
     "ntwitter": "~0.3.0"
-=======
-    "express-expose": "~0.2.2"
->>>>>>> fc29c08f1f410efa8c193024d4388c2060f79564
+    "express-expose": "~0.2.2",
+    "async": "~0.1.18"
   }
 }
