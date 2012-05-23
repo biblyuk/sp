@@ -2,5 +2,14 @@
 
 var socket = io.connect('http://localhost:3000');
 
+function streamUpdate() {
 
-console.log(socket);
+}
+
+socket.on('stream update', function(from, msg) {
+
+	// Refresh the UI
+	console.log("Recieved a stream update from IO", from, msg);
+	streamUpdate();
+
+});

@@ -14,5 +14,13 @@ console.log('init');
 
 		console.log('connection', socket);
 
+		
+
 	});
+};
+
+
+exports.broadcast = function(message) {
+
+	io.sockets.emit('stream update', {text: message});
 };
