@@ -14,8 +14,6 @@ function conversationsUpdate(conversation) {
 
 socket.on('conversation update', function(object) {
 
-	console.log('got new conversation', object);
-
 	// Refresh the UI
 	conversationsUpdate(object);
 });
