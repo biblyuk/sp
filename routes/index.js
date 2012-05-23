@@ -1,10 +1,21 @@
-var realtime = require('../helpers/realtime.js');
+var
+
+realtime = require('../helpers/realtime.js'),
+tempalateCompiler = require('../helpers/templateCompiler');
 
 /*
  * GET home page.
  */
 exports.index = function(req, res){
-	res.render('index', { title: 'Shortest Path' });
+
+
+	tempalateCompiler.compile(function(templates) {
+
+		res.render('index', {
+			title: 'Shortest Path',
+			templates: templates
+		});
+	});
 };
 
 /*
