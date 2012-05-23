@@ -1,0 +1,1089 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"verti",
+				"vertical-align"
+			],
+			[
+				"inl",
+				"inline-block  (value)"
+			],
+			[
+				"border-bottom-",
+				"border-bottom-width:   (property)"
+			],
+			[
+				"small",
+				"smallscreen"
+			],
+			[
+				"font-",
+				"font-stretch:   (property)"
+			],
+			[
+				"font-size",
+				"font-size-adjust:   (property)"
+			],
+			[
+				"scro",
+				"scrollerContainer"
+			],
+			[
+				"pb",
+				"pbbrowser"
+			],
+			[
+				"call",
+				"callbackUrl"
+			],
+			[
+				"get",
+				"getDeviceType"
+			],
+			[
+				"webkitTran",
+				"webkitTransitionEnd"
+			],
+			[
+				"article",
+				"articlesColumn"
+			],
+			[
+				"client",
+				"clientWidth"
+			],
+			[
+				"webkit-transition",
+				"-webkit-transition-property:   (property)"
+			],
+			[
+				"col",
+				"columnPadding"
+			],
+			[
+				"white",
+				"white-space:   (property)"
+			],
+			[
+				"query",
+				"querySelector"
+			],
+			[
+				"art",
+				"articleData"
+			],
+			[
+				"no",
+				"no-repeat  (value)"
+			],
+			[
+				"backg",
+				"background-position:   (property)"
+			],
+			[
+				"member",
+				"membership"
+			],
+			[
+				"is",
+				"isPlayingClass"
+			],
+			[
+				"event",
+				"eventManager"
+			],
+			[
+				"mem",
+				"membersCollection"
+			],
+			[
+				"De",
+				"Delegate"
+			],
+			[
+				"loadedTracks",
+				"loadedTracksCollection"
+			],
+			[
+				"curre",
+				"currentTrack"
+			],
+			[
+				"timeline",
+				"timelineEl"
+			],
+			[
+				"main",
+				"main"
+			],
+			[
+				"webkit-tran",
+				"webkit-transition"
+			],
+			[
+				"deta",
+				"detailsVisible"
+			],
+			[
+				"details",
+				"details-visible"
+			],
+			[
+				"in",
+				"inputField"
+			],
+			[
+				"invite",
+				"inviteUrl"
+			],
+			[
+				"inv",
+				"inviteUrl"
+			],
+			[
+				"container",
+				"overlayContainerInstance"
+			],
+			[
+				"overlay",
+				"overlay_html"
+			],
+			[
+				"tracks",
+				"tracksCollection"
+			],
+			[
+				"re",
+				"resources"
+			],
+			[
+				"asse",
+				"assetManager"
+			],
+			[
+				"new",
+				"newOverlayName"
+			],
+			[
+				"update",
+				"updateDimensions"
+			],
+			[
+				"upDate",
+				"updateDimensions"
+			],
+			[
+				"issue",
+				"issueCover"
+			],
+			[
+				"isS",
+				"isScrollableClass"
+			],
+			[
+				"stop",
+				"stopPropagation  (function)"
+			],
+			[
+				"overl",
+				"overlayOpenClass"
+			],
+			[
+				"_is",
+				"_isPlaying"
+			],
+			[
+				"box",
+				"box-shadow"
+			],
+			[
+				"_update",
+				"_updateSectionListSelected"
+			],
+			[
+				"_check",
+				"_checkIfBookmarked"
+			],
+			[
+				"track",
+				"trackDuration"
+			],
+			[
+				"err",
+				"err"
+			],
+			[
+				"webkit",
+				"webkit-box-shadow"
+			],
+			[
+				"parent",
+				"parentNode"
+			],
+			[
+				"_onFontSize",
+				"_onFontSizeBtnClick"
+			],
+			[
+				"sectionList",
+				"sectionListBtn"
+			],
+			[
+				"scroll",
+				"scrollbars"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"line",
+				"line-height"
+			],
+			[
+				"first",
+				"first-child"
+			],
+			[
+				"invi",
+				"inviteExpired"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"webkit-box",
+				"webkit-box-orient"
+			],
+			[
+				"text-",
+				"text-decoration"
+			],
+			[
+				"invit",
+				"invites"
+			],
+			[
+				"as",
+				"async"
+			],
+			[
+				"group",
+				"groupModel"
+			],
+			[
+				"_IS",
+				"_playerIsVisible"
+			],
+			[
+				"has",
+				"hasAudio"
+			],
+			[
+				"remove",
+				"removeEventListener"
+			],
+			[
+				"data",
+				"data-hasaudio"
+			],
+			[
+				"init",
+				"initializes"
+			],
+			[
+				"matc",
+				"matchingTrack"
+			],
+			[
+				"html",
+				"htmlElement"
+			],
+			[
+				"fon",
+				"fontSize"
+			],
+			[
+				"i",
+				"italic  (value)"
+			],
+			[
+				"paren",
+				"parentNode"
+			],
+			[
+				"backgr",
+				"background	background-color: hex"
+			],
+			[
+				"state",
+				"stateReady"
+			],
+			[
+				"loc",
+				"_lockWindowHeight"
+			],
+			[
+				"webkit-tra",
+				"-webkit-transition:   (property)"
+			],
+			[
+				"add",
+				"addEventListener"
+			],
+			[
+				"land",
+				"landing-page__left"
+			],
+			[
+				"landing",
+				"landing-page__left"
+			],
+			[
+				"subsc",
+				"subscribeBtn"
+			],
+			[
+				"was",
+				"wasPlaying"
+			],
+			[
+				"_load",
+				"_loadedTrack"
+			],
+			[
+				"inner",
+				"innerHeight"
+			],
+			[
+				"pointer",
+				"pointer-events"
+			],
+			[
+				"local",
+				"localStorage"
+			],
+			[
+				"getArticle",
+				"getArticleNode"
+			],
+			[
+				"content",
+				"contentContainer"
+			],
+			[
+				"getArt",
+				"getArticleNode"
+			],
+			[
+				"hash",
+				"hashValue"
+			],
+			[
+				"you",
+				"youTubeUrl"
+			],
+			[
+				"relate",
+				"relativeParent"
+			],
+			[
+				"current",
+				"currentTime"
+			],
+			[
+				"on",
+				"onAudioBtnClick"
+			],
+			[
+				"share",
+				"sharedUtils"
+			],
+			[
+				"be",
+				"beerTmpl"
+			],
+			[
+				"pos",
+				"pointer-events"
+			],
+			[
+				"class",
+				"classList"
+			],
+			[
+				"checke",
+				"checkboxes"
+			],
+			[
+				"email",
+				"emailField"
+			],
+			[
+				"articl",
+				"articlesNeedPreloading"
+			],
+			[
+				"brewe",
+				"brewery  (argument)"
+			],
+			[
+				"bookmark",
+				"bookmarkIndex  (variable)"
+			],
+			[
+				"back",
+				"backLocation  (variable)"
+			],
+			[
+				"font",
+				"font-size:   (property)"
+			],
+			[
+				"max-",
+				"max-width:   (property)"
+			],
+			[
+				"box-shadow",
+				"-webkit-box-shadow:   (property)"
+			],
+			[
+				"font-st",
+				"font-style:   (property)"
+			],
+			[
+				"fon-t",
+				"font-weight:   (property)"
+			],
+			[
+				"password",
+				"password_verify  (variable)"
+			],
+			[
+				"continue",
+				"continueToLibraryBtnEl  (variable)"
+			],
+			[
+				"inline",
+				"inline-block  (value)"
+			],
+			[
+				"paddin",
+				"padding-right:   (property)"
+			],
+			[
+				"border-co",
+				"border-color:   (property)"
+			],
+			[
+				"libra",
+				"libraryRendered  (variable)"
+			],
+			[
+				"marg",
+				"margin:   (property)"
+			],
+			[
+				"list",
+				"list-style-type:   (property)"
+			],
+			[
+				"webkit-tr",
+				"-webkit-transition:   (property)"
+			],
+			[
+				"dis",
+				"display:   (property)"
+			],
+			[
+				"lorem",
+				"lorem	lorem - Medium paragraph"
+			],
+			[
+				"overfl",
+				"overflow:   (property)"
+			],
+			[
+				"height",
+				"outerHeight  (variable)"
+			],
+			[
+				"padding",
+				"padding-left:   (property)"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+			[
+				"show",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"col",
+				"Color picker"
+			],
+			[
+				"co",
+				"Color picker"
+			],
+			[
+				"gist",
+				"Gist: Open Gist"
+			],
+			[
+				"git",
+				"Gist: Open Gist"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"lint",
+				"Closure Linter: Show Closure Linter Result"
+			],
+			[
+				"form",
+				"Format: Javascript"
+			],
+			[
+				"",
+				"Gist: Update File"
+			],
+			[
+				"Package ",
+				"Package Control: Install Package"
+			],
+			[
+				"codeint",
+				"SublimeCodeIntel: Reset"
+			]
+		],
+		"width": 602.0
+	},
+	"console":
+	{
+		"height": 279.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/css/globals/layout.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/templates/marketsdata.html",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/javascript/mFT components/globals.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/javascript/mFT components/authentication.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/css/render.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/javascript/mFT components/sections.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/templates/client/overlay.ms",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/javascript/mFT components/portfolio.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/css/globals/reset.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/css/views/sections.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/css/globals/sectionselector.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/css/screen.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/templates/section.html",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/css/globals/reusables.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/templates/page[template_area].html",
+		"/Users/wilsonpage/Library/Application Support/Sublime Text 2/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/css/metro.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/css/globals/defaults.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/app/controllers/bootstrappedcontent",
+		"/Volumes/wilson/sandboxes/ftmob-app-dev/app/controllers/resourceloader",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/views/sections.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/views/content.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/globals/sectionselector.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates/podcast.html",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates/section.html",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates/page.html",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/globals/layout.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/globals_unminifiable.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/screen.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/sections.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/globals/headerbar.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates/authentication.html",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/popovers.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/metro.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/app/controllers/resourceloader",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/render.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/clippings.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates/marketsdata.html",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates/podcasts.html",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates/currencyconverter.html",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/sections.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/app/controllers/bootstrappedcontent",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/content.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/home.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates/tearsheet.html",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/articles.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/portfolio.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/contentupdates.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/authentication.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates/page[splash_screen].html",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/size&orientation.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/coreglobals/buttons.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/globals/reusables.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/coreglobals/progressbar.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/utility.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/globals.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/contentupdates.js.~1~",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/tearsheets.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/preferences.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/startup.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/html/lib/fonts/convert-to-eot.sh",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/globals/buttons.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components/sectionselector.js",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates/content.html",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/app/controllers/manifest",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates/page[template_area].html",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/globals/header.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/globals/section-selector.css",
+		"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css/header.css",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/util.js",
+		"/Users/wilsonpage/Library/Application Support/Sublime Text 2/Packages/User/SublimeLinter.sublime-settings",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/overlays/signup.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css/pages/edition.css",
+		"/Users/wilsonpage/Library/Application Support/Sublime Text 2/Packages/SublimeLinter/changelog.txt",
+		"/Users/wilsonpage/Library/Application Support/Sublime Text 2/Packages/SublimeLinter/README.rst",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/pages/article.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/pages/library.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/overlays/terms-privacy.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/html/overlays/login-signup.html",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css/global/overlays.css",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css/pages/article.css",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/controllers/startup.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/app/scripts/compile-resources",
+		"/Users/wilsonpage/Documents/E/Economist/economist.sublime-project",
+		"/Users/wilsonpage/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/app/controllers/ResetController",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/app/controllers/AbstractController",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/templates/qsscallback.html",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/app/controllers/QSSCallbackController",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/html/index",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css/global/header.css",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/app/controllers/ArticleController",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/templates/reset.html",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/templates/appcacheloader.html",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/templates/callback.html",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/html/overlays/subscribe-reminder.html",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/html/overlays/my-account.html",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/html/overlays/signup.html",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/templates/wrapper.html",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/pages/global.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/app/classes/api/actions/ApiRegisterUser",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/overlays/my-settings.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/html/footer.html",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css/global/layout.css",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css/global/styles.css",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/html/header.html",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css/pages/library.css",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css/global/reset.css",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/overlays/my-account.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/pages/edition.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/overlays/login-signup.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/overlays.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/templates/library/library.html",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/controllers/init.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css/global/states.css",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/templates/edition/edition.html",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/html/overlays/list-template.html",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/navigation.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/tmp/resourcecache/app.css",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/user.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/bootstrap.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/overlays/help.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/html/overlays/help.html",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css/global/red-header.css",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/app/controllers/LibraryController",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/app/controllers/EditionController",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/audio.js",
+		"/Volumes/wilson/sandboxes/econhtml5-dev/lib/templates/edition/index.html"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/css",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/css",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/templates",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/templates",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/css",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/templates",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/templates",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/css",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/templates",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/templates",
+			"/Volumes/wilson/sandboxes/ftmob-app-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css",
+			"/Volumes/wilson/sandboxes/ftmob-app-test",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/html",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript/mFT components",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/javascript",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/templates",
+			"/Volumes/wilson/sandboxes/ftmob-app-test",
+			"/Volumes/wilson/sandboxes/ftmob-app-test/lib/css",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/app",
+			"/Volumes/wilson/sandboxes/econhtml5-dev",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/app",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css/global",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/overlays",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/app",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib",
+			"/Users/wilsonpage/Documents/T/tunetub/routes",
+			"/Users/wilsonpage/Documents/T/tunetub/models",
+			"/Users/wilsonpage/Documents/T/tunetub",
+			"/Users/wilsonpage/Documents/T/tunetub/static/js",
+			"/Users/wilsonpage/Documents/T/tunetub/static/js/app/collections",
+			"/Users/wilsonpage/Documents/T/tunetub/static/js",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/html/overlays",
+			"/Users/wilsonpage/Documents/T/tunetub/static/js/app",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css/common",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/html/overlays",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/overlays",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Users/wilsonpage/Documents/T/tunetub/node_modules/express",
+			"/Users/wilsonpage/Documents/T/tunetub/node_modules/express/node_modules/connect",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/app/classes/api",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/app/classes/api/actions",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/app/classes/api",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/app",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/app/classes/api/actions",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/html/overlays",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules/overlays",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/html/overlays",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/html",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/html/overlays",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Users/wilsonpage/Documents/T/tunetub",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript/modules",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Users/wilsonpage/Documents/T/tunetub/static/js",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css/common",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/css",
+			"/Volumes/wilson/sandboxes/econhtml5-dev/lib/javascript",
+			"/Users/wilsonpage/Documents/B/beerco",
+			"",
+			"/Users/wilsonpage/Documents/T/tunetub",
+			"/Users/wilsonpage/Documents/B/beerco",
+			"/Volumes/wilson/sandboxes/econhtml5-dev",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".subscribelevel .subscriptionchoice .button",
+			"dark-grey",
+			"dark-btn",
+			"back-to-top",
+			"paginatednavigator",
+			"homescreenmarketsdata",
+			"special-reports-li",
+			"tabbednavigatorcontentbar",
+			"midriff2 tabbednavigatorcontentbar",
+			"HP_RIGHTRAIL_HDNG_ANON",
+			"HP_RIGHTRAIL_HDNG_ANON:",
+			"subscribe now for un",
+			"videomidr",
+			".rail p",
+			"sign in to view",
+			"<h3 class=\"tit",
+			".smallscreen .my-portfolio-widget",
+			"mpu dfpadplaceholder",
+			"rightrailmacromap",
+			".mpu.dfpadplaceholder",
+			".last-updated-marketsdata",
+			"java",
+			"css",
+			"HP_RIGHTRAIL_HDNG_ANON",
+			"subscribe now for",
+			"headshot",
+			"section",
+			"listnav",
+			"class=\"sections\"",
+			"class='section'",
+			"class=\"section\"",
+			"class=\"section",
+			"sectionselector",
+			"sectionselecor",
+			"backbuttonwrapper",
+			"specialreport",
+			"specialr",
+			".smallscreen .weekendsection .headertitle",
+			"smallscreen .header",
+			"nonav",
+			"sectionbutton",
+			"nonav",
+			"galler",
+			"nonav",
+			"58px",
+			".nonavigation .homepageheaderbar .headertitle h2",
+			"android",
+			"nonavigationhea",
+			"wrapper",
+			"box-shadow",
+			"gallery",
+			"nonavigation",
+			"weekendpage",
+			".weekendsection .headertitle .weekend-page",
+			".weekendsection .homepageheaderbar .headertitle",
+			".smallscreen .weekendsection .headertitle .weekend-page",
+			"system-message",
+			"featurecontainer",
+			".signout, .justsignedin ",
+			"popover",
+			"subscribe on ft.com",
+			"action-buttons",
+			".action-buttons",
+			"body",
+			"blog",
+			"headertitle",
+			"last-updated-container",
+			".clippingsbuttonwrapper ",
+			"generateClip",
+			"clippingsbuttonwrapper",
+			"featurecontainer",
+			"sharelink",
+			".worldmarkets-graph",
+			"-margin-bottom",
+			"the new application could not",
+			"clipClickInEdit",
+			"clippings .sect",
+			" */",
+			"markets",
+			"clipping",
+			"clippingListTitle",
+			"clippingListTitle hr2",
+			"clippingClueImagePageContainer",
+			"clippinglistitle",
+			"button backbutton",
+			"class='button backbutton'",
+			"class=\"button backbutton\"",
+			"sign in or subscribe",
+			"metr",
+			"metro",
+			"backbutton",
+			"last updated",
+			".skyline",
+			"headertitle",
+			"flexbox",
+			"li",
+			"paginatednavigator",
+			"my-portfolio-w",
+			".smallscreen .homescreenmarketsdata",
+			"smallscreen .homescreenmarketsdata",
+			"smallscreen .marketsdata",
+			"marketsdata",
+			"subscriptionbuttoncontainer",
+			"js-market-data",
+			"js-markets-data",
+			"beyondbrics",
+			"calltoaction",
+			"fonts",
+			"box-flex",
+			"button backbutton",
+			"popovertitlebar",
+			"popovertit",
+			"ele.firstChild.style.width=progressWidth",
+			"contentbar midriff",
+			"contentbar middriff",
+			"sectionbutton",
+			"secitonbutton",
+			"base",
+			"standalone",
+			"button",
+			"appcache",
+			"font",
+			".smallscreen .homepageheaderbar .headertitle h2",
+			"smallscreen .header",
+			"background-position: 6px 8px",
+			"background-position: 6px 8px;",
+			".smallscreen .homepageheaderbar .headertitle h2",
+			"smallscreen .sectionm"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"appRoot",
+			"				<button class='red-header__back-btn -bg-clear-grad js-back-btn'><i class='-spr'></i></button>",
+			"<div class='center -bg-clear-grad'>",
+			"				<button class='red-header__back-btn -bg-clear-grad js-back-btn'><i class='-spr'></i></button>",
+			"header",
+			"js-back-btn",
+			"'red-header__bar'",
+			"js-back-btn",
+			"red-header__back-btn",
+			"red-header-back-btn js-back-btn",
+			"articleid",
+			"articleeid",
+			"h3",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 27.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/wilsonpage/Documents/F/ft-webapp/ft-webapp-test.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 259.0,
+	"status_bar_visible": true
+}
