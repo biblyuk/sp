@@ -19,8 +19,22 @@ console.log('init');
 	});
 };
 
+/**
+ * Broad a social update to the UI
+ * 
+ * @param  {Object} object A social update object
+ */
+exports.broadcastSocial = function(object) {
 
-exports.broadcast = function(message) {
+	io.sockets.emit('social update', object);
+};
 
-	io.sockets.emit('stream update', {text: message});
+/**
+ * Broadcast an article update to the UI
+ * 
+ * @param  {Object} object An article object
+ */
+exports.broadcastArticle = function(object) {
+
+	io.sockets.emit('article update', object);
 };
