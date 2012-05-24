@@ -16,6 +16,7 @@ opencalais = require('./objects/opencalais'),
 ft = require('./objects/ft'),
 postCache  = [],
 convoCache = [],
+convoInc = 1,
 translate = require('../libraries/translate.js'),
 assert = require('assert'),
 googletranslatekey = require('../data/apikeys.json').googleapis,
@@ -150,7 +151,8 @@ function collate(postObject) {
 	if (!hasConvo) {
 		convoCache.push({
 			messages: [postObject],
-			tags:     postObject.tags || []
+			tags:     postObject.tags || [],
+			id: convoInc++
 		});
 	}
 
