@@ -57,6 +57,7 @@ function broadcast(conversation) {
  */
 function analyse(postObject) {
 
+<<<<<<< HEAD
 	function _analyse(postObject) {
 		// Don't do anything if the post is already known
 		if (postCache.some(function(p) {
@@ -70,6 +71,9 @@ function analyse(postObject) {
 		trimCache();
 
 		// TODO:MCG: Detect the language first using Google TR. If the language is en, es or fr, send to language-specific OpenCalais method. Otherwise perform a translation to English then send to OpenCalais.
+=======
+	console.log('Realtime server analysing:', postObject.provider, postObject.id);
+>>>>>>> 84a1d0f4f7cdf00331ecb884c7cc85801714ab38
 
 		// Send to OpenCalais for analysis
 		opencalais.send(postObject);
@@ -104,14 +108,15 @@ function analyse(postObject) {
 function collate(postObject) {
 	var i, k, l, p, t, score, conversation;
 
-	console.log('Realtime server collating:', postObject);
+	console.log('Realtime server collating:', postObject.provider, postObject.id);
 
 	for (i = 0, l = postCache.length; i < l; i++) {
-		if (p === postObject) {
+		p = postCache[i];
+
+		if (p === postObject || !p.tags) {
 			continue;
 		}
 
-		p = postCache[i];
 		t = {};
 		score = 0;
 
@@ -181,7 +186,7 @@ exports.init = function(app) {
 	twitter.startStream();
 
 	facebook.on('post', analyse);
-	facebook.startPolling();
+	facebook.startStream();
 
 	weibo.on('post', analyse);
 	weibo.startStream();
