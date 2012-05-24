@@ -163,7 +163,7 @@ exports.init = function(app) {
 	facebook.startPolling();
 
 	weibo.on('post', analyse);
-	//weibo.startStream();
+	weibo.startStream();
 
 	ft.on('processed', broadcast);
 };
