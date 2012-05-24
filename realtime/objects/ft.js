@@ -33,11 +33,13 @@ function search(conversation) {
 
 		var tag = conversation.tags[id];
 
-		if (tag.type !== 'generic') {
-			queryParams.push(tag.type + ':"' + tag.name + '"');
-		} else {
-			//queryParams.push('"' + tag.name + '"');
+		if (tag.type == 'generic') {
+			return;
 		}
+
+		console.log(tag);
+
+		queryParams.push(tag.type + ':"' + tag.name + '"');
 	});
 
 	if (!queryParams.length) return;
@@ -46,6 +48,10 @@ function search(conversation) {
 	queryString += ' AND (initialPublishDateTime:>2012-05-16T00:00:00Z)';
 
 	conversation.ft = [];
+
+	console.log('\n\n', queryString, '\n\n', conversation.tags, '\n\n');
+
+	return;
 
 
 /*
@@ -158,9 +164,6 @@ function search(conversation) {
 }
 
 function _loadFullContent(conversation, url) {
-
-
-
 
 
 	request(
