@@ -84,7 +84,7 @@ function analyse(postObject) {
 				postObject.originalMessage = postObject.message;
 				postObject.message = result[postObject.originalMessage];
 				_analyse(postObject);
-				
+
 			});
 		} catch(e){
 			console.log(e);
