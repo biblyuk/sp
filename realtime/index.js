@@ -17,7 +17,7 @@ ft = require('./objects/ft'),
 postCache  = [],
 translate = require('node-google-translate'),
 assert = require('assert'),
-googletranslatekey = require('../data/apikeys.json').googletranslate,
+googletranslatekey = require('../data/apikeys.json').googleapis,
 io;
 
 
