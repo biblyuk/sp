@@ -16,7 +16,7 @@ opencalais = require('./objects/opencalais'),
 ft = require('./objects/ft'),
 postCache  = [],
 convoCache = [],
-translate = require('node-google-translate'),
+translate = require('../libraries/node-google-translate/lib/translate.js'),
 assert = require('assert'),
 googletranslatekey = require('../data/apikeys.json').googleapis,
 io;
@@ -85,9 +85,9 @@ function analyse(postObject) {
 
 	// Translate ones string
 
-	if (postObject.provider =='weibo') {
+//	if (postObject.provider =='weibo') {
 		try {
-			translate({key: googletranslatekey, q: postObject.message, target: 'en', source: 'zh-CN'}, function(result){
+			translate({key: googletranslatekey, q: postObject.message, target: 'en', source: 'auto'}, function(result){
 				postObject.originalMessage = postObject.message;
 				postObject.message = result[postObject.originalMessage];
 				_analyse(postObject);
@@ -97,9 +97,9 @@ function analyse(postObject) {
 			console.log(e);
 
 		}
-	} else {
-		_analyse(postObject);
-	}
+	//} else {
+	//	_analyse(postObject);
+	//}
 }
 
 
