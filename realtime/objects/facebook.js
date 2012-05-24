@@ -188,7 +188,7 @@ function startPolling(accessToken) {
 				console.error("Facebook stream: error getting user feed", e);
 			});
 
-			console.log("Facebook stream: getting user stream for %s", req.path);
+			// console.log("Facebook stream: getting user stream for %s", req.path);
 
 			req.setTimeout(900);
 			req.end();
