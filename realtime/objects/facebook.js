@@ -161,6 +161,10 @@ function startPolling(accessToken) {
 									return true;
 								}
 
+								if (!post.message) {
+									return false;
+								}
+
 								emtr.emit('post', {
 									provider:  'facebook',
 									id:        post.id,
