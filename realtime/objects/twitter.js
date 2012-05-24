@@ -107,22 +107,27 @@ function startStream() {
 
 	/* Get any existing tweets */
 	twit.getFriendsTimeline(null, function (err, tweets){
-		var i, l, tweet;
+		var i, l, tweet, timeoutIncr = 0;
 		if (err) return;
 		for (i=0, l=tweets.length; i<l; i++) {
 			tweet = tweets[i];
-			emtr.emit('post', {
-				provider:  'twitter',
-				id:        tweet.id,
-				message:   tweet.text,
-				timestamp: new Date(tweet.created_at).getTime(),
-				user:      {
-					realname: tweet.user.name,
-					username: tweet.user.screen_name,
-					location: tweet.user.location,
-					avatar:   tweet.user.profile_image_url
-				}
-			});
+
+			setTimeout(function() {
+				emtr.emit('post', {
+					provider:  'twitter',
+					id:        tweet.id,
+					message:   tweet.text,
+					timestamp: new Date(tweet.created_at).getTime(),
+					user:      {
+						realname: tweet.user.name,
+						username: tweet.user.screen_name,
+						location: tweet.user.location,
+						avatar:   tweet.user.profile_image_url
+					}
+				});
+			}, 500 + timeoutIncr);
+
+			timeoutIncr = timeoutIncr + 500;
 			console.log("Twitter stream: received backlog tweet from %s", tweet.user.screen_name);
 		}
 	});
