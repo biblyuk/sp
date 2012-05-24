@@ -151,7 +151,7 @@ function startPolling(accessToken) {
 							console.log("Facebook stream: error parsing stream for user '%s'", user);
 						}
 
-						if (data) {
+						if (data && data.length) {
 							console.log("Facebook stream: received %d posts for user %s", data.length, user);
 
 							data.some(function(post) {
