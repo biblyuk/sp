@@ -54,7 +54,7 @@ function broadcast(conversation) {
  */
 function analyse(postObject) {
 
-	console.log('Realtime server analysing:', postObject);
+	console.log('Realtime server analysing:', postObject.provider, postObject.id);
 
 	// Don't do anything if the post is already known
 	if (postCache.some(function(p) {
@@ -82,8 +82,8 @@ function analyse(postObject) {
  */
 function collate(postObject) {
 	var i, k, l, p, t, score, conversation;
-console.log('postcache', postCache);
-	console.log('Realtime server collating:', postObject);
+
+	console.log('Realtime server collating:', postObject.provider, postObject.id);
 
 	for (i = 0, l = postCache.length; i < l; i++) {
 		p = postCache[i];
