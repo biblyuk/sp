@@ -24,14 +24,24 @@ module.exports = emtr;
  */
 function search(conversation) {
 
-	var queryString, tags;
+	var queryParams = [],
+	    queryString,
+	    tags = [];
 
 	// The tags property is an object, keyed by OpenCalais tag ID
-	tags = Object.keys(conversation.tags).map(function(t) {
-		return t.name;
+	Object.keys(conversation.tags).map(function(id) {
+
+		var tag = conversation.tags[id];
+
+		if (tag.type !== 'generic') {
+			queryParams.push(tag.type + ':"' + tag.name + '"');
+		} else {
+			//queryParams.push('"' + tag.name + '"');
+		}
 	});
 
-	queryString = '"' + tags.join('" AND "') + '"';
+	queryString = queryParams.join(' AND ');
+	queryString += ' AND (initialPublishDateTime:>2012-05-16T00:00:00Z)';
 
 	conversation.ft = [];
 
@@ -103,8 +113,6 @@ function search(conversation) {
 	   }
 */
 
-	queryString += ' AND (initialPublishDateTime:>2012-05-16T00:00:00Z)';
-
 	request(
 		{
 			method: "POST",
@@ -122,18 +130,24 @@ function search(conversation) {
 
 		function _resp(error, response, body) {
 
+			var i, l, resultSet;
+
 			if (response && response.statusCode == 200) {
 
-				body.results[0].results.forEach(function _processResults(item) {
-					queue.append(item.location.uri);
-				});
+				for (i = 0, l = body.results.length; i < l; i++) {
+					resultSet = body.results[i];
 
-				_loadFullContent(conversation, queue);
+					if (!resultSet.indexCount) continue;
+
+					resultSet.results.forEach(function _processResults(item) {
+						_loadFullContent(conversation, item.apiUrl);
+					});
+				}
 
 			} else {
 
-				// 429 is throttled
-				console.log('error: '+ ((response && response.statusCode) || '(unknown)'));
+				// NB: 429 is throttled
+				console.log('Search API error: '+ ((response && response.statusCode) || '(unknown)'));
 				console.log(body);
 			}
 		}
@@ -141,13 +155,50 @@ function search(conversation) {
 
 }
 
-function _loadFullContent(conversation, queue) {
+function _loadFullContent(conversation, url) {
 
-	conversation.ft.forEach(function _loadFull(article) {
 
-	});
 
-	emtr.emit('processed', conversation);
+
+
+	request(
+		{
+			method: "GET",
+			uri: url + "?apiKey=" + apiKey
+		},
+
+		function _resp(error, response, body) {
+
+			var articleJson, article;
+
+			if (response && response.statusCode == 200) {
+
+				try {
+					articleJson = JSON.parse(body);
+					articleJson = articleJson.item;
+				} catch (e) {
+					console.error('Unable to parse Content API response', e);
+					return;
+				}
+
+				var article = {
+					"excerpt" : articleJson.summary.excerpt,
+					"image": (articleJson.images ? articleJson.images[0] : []),
+					"publishDate" : articleJson.lifecycle.initialPublishDateTime,
+					"title" : articleJson.title.title,
+					"uri" : articleJson.location.uri
+				};
+				console.log(article);
+
+			} else {
+				console.log('Content API error: '+ ((response && response.statusCode) || '(unknown)'));
+				console.log(body);
+			}
+		}
+	);
+
+
+// 	emtr.emit('processed', conversation);
 }
 
 
