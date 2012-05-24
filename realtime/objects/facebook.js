@@ -84,7 +84,7 @@ function getAccessToken(callback) {
 	var req = https.request({
 			method:   'POST',
 			hostname: 'graph.facebook.com',
-			path:     '/oauth/access_token?type=client_cred&client_secret=' + apiKeys.app_secret + '&client_id=' + apiKeys.app_id + '&scope=read_stream'
+			path:     '/oauth/access_token'
 		},
 		function(res) {
 			var data = '';
@@ -95,13 +95,24 @@ function getAccessToken(callback) {
 			});
 
 			res.on('end', function() {
-				callback(querystring.parse(data));
+				console.log("Facebook stream: got access token", data);
+
+				callback(querystring.parse(data).access_token);
 			});
 		});
+
+	console.log("Facebook stream: getting access from %s", req.path);
+
+	req.setTimeout(10000, function() {
+		console.log("Facebook stream: timed out while getting access token");
+	});
 
 	req.on('error', function(e) {
 		console.error("Facebook stream: error getting access token", e);
 	});
+
+	req.write('type=client_cred&client_secret=' + apiKeys.app_secret + '&client_id=' + apiKeys.app_id + '&scope=read_stream', 'utf8');
+	req.end();
 }
 
 function startPolling(accessToken) {
@@ -141,6 +152,8 @@ function startPolling(accessToken) {
 						}
 
 						if (data) {
+							console.log("Facebook stream: received %d posts for user %s", data.length, user);
+
 							data.some(function(post) {
 								var dateDiff = Date.now() - new Date(post.created_time).getTime();
 
@@ -171,7 +184,10 @@ function startPolling(accessToken) {
 				console.error("Facebook stream: error getting user feed", e);
 			});
 
+			console.log("Facebook stream: getting user stream for %s", req.path);
+
 			req.setTimeout(900);
+			req.end();
 
 			index++;
 		}, 1000);
