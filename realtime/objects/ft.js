@@ -40,6 +40,8 @@ function search(conversation) {
 		}
 	});
 
+	if (!queryParams.length) return;
+
 	queryString = queryParams.join(' AND ');
 	queryString += ' AND (initialPublishDateTime:>2012-05-16T00:00:00Z)';
 
