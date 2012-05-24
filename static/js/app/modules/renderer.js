@@ -1,19 +1,35 @@
 define([
 	'jquery',
 	'underscore',
+	'../../libs/utils/utils',
 	'text!templates/_conversation.ejs'
-], function($, _, conversation_tmpl){
+], function($, _, Utils, conversation_tmpl){
 	var
 
 	Renderer = {},
-	els = {};
+	$els = {};
 
 
 
 
 	function _onNewConversation(event, conversation) {
-		var html = conversation_tmpl({ conversation: conversation, _: _ });
-		$(html).appendTo(els.conversationList);
+		var html, existingConversion;
+
+		// Covert timestapm pto relative time
+		//conversation.time = Utils.relativeTime(conversation.timestamp);
+		html = conversation_tmpl({ conversation: conversation, _: _, toRelativeTime: Utils.relativeTime }),
+		existingConversion = $('#js-conversation-' + conversation.id);
+
+		// If an exisitng conversation with this id exists
+		if (existingConversion.length) {
+
+			// remove the existing conversation
+			//existingConversion.remove();
+		}
+
+		$($els.conversationList).prepend(html);
+
+
 	}
 
 
@@ -21,9 +37,9 @@ define([
 	function _onAppStart() {
 
 		// Cache the list elments
-		els.conversationList = $('#js-conversation-list');
+		$els.conversationList = $('#js-conversation-list');
 
-		// Compile the tmeplate function
+		// Compile the template function
 		conversation_tmpl = _.template(conversation_tmpl);
 	}
 

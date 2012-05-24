@@ -1,20 +1,36 @@
-<div class="conversation">
+<li class="conversation" id="js-conversation-<%= conversation.id %>">
 	<div class="inner">
 		<ul class="conversation__tags clearfix">
 			<% _.forEach(conversation.tags, function(tag) { %>
 				<li class="tag"><%= tag %></li>
 			<% }); %>
 		</ul>
-		<ul class="conversation__messsages">
+		<ul class="conversation__messages">
 			<% _.forEach(conversation.messages, function(message) { %>
-				<li class="message"><%= message.user.realname %></li>
+				<li class="message">
+					<div class="inner">
+						<img src="<%= message.user.avatar %>">
+						<div class='row-1'>
+							<span class="name"><%= message.user.realname %></span>
+							<span class="time"> <%= toRelativeTime(message.timestamp) %></span>
+							<span class="location"> <%= message.user.location %></span>
+						</div>
+						<div class="body"><%= message.message %></div>
+					</div>
+				</li>
 			<% }); %>
 		</ul>
 		<h4 class="conversation__articles-title">Matching articles</h3>
 		<ul class="conversation__articles">
 			<% _.forEach(conversation.articles, function(article) { %>
-				<li class="article"><%= article.excerpt %></li>
+				<li class="article">
+					<div class="inner">
+						<img src="<%= article.image.url %>">
+						<h5 class="title"><%= article.title %></h5>
+						<div class="excerp"><%= article.excerpt %></div>
+					</div>
+				</li>
 			<% }); %>
 		</ul>
 	</div>
-</div>
+</li>
