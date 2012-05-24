@@ -160,7 +160,7 @@ function process(postObject, ocResponse) {
 		}
 
 		// Further check for URLs
-		if (tag.name.slice(0, 4) === 'http:') {
+		if (tag.name.slice(0, 5) === 'http:') {
 			continue;
 		}
 
