@@ -84,7 +84,10 @@ function startStream() {
 				});
 			} catch (e) {
 				console.log("Error after getting tweet", e);
+				return;
 			}
+
+			console.log("Twitter stream: received tweet from %s", tweet.user.screen_name);
 		});
 
 		stream.on('end', function(response) {
