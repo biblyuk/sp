@@ -15,6 +15,7 @@ weibo = require('./objects/weibo'),
 opencalais = require('./objects/opencalais'),
 ft = require('./objects/ft'),
 postCache  = [],
+convoCache = [];
 translate = require('node-google-translate'),
 assert = require('assert'),
 googletranslatekey = require('../data/apikeys.json').googletranslate,
@@ -22,16 +23,22 @@ io;
 
 
 /**
- * Keep the post cache under control.
+ * Keep the post and convo caches under control.
  *
  * @private
  */
-function trimCache() {
+function trimCaches() {
 	var maxLength = 1000, length = postCache.length;
 
 	if (length > maxLength) {
 		postCache.splice(maxLength - 1, length - maxLength);
 		console.log("Trimmed %d elements from the post cache", length - maxLength);
+	}
+	length = convoCache.length;
+
+	if (length > maxLength) {
+		convoCache.splice(maxLength - 1, length - maxLength);
+		console.log("Trimmed %d elements from the conversation cache", length - maxLength);
 	}
 }
 
