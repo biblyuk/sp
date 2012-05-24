@@ -1,16 +1,68 @@
+/**
+ * Pass data from Facebook, Twitter, etc. to OpenCalais for analysis, before routing to the grouping step.
+ *
+ * @fileOverview
+ * @author George Crawford
+ */
+
 var
 
 request = require('request'),
-helpers = require('../helpers'),
-apiKey  = require('./apikeys').ftapi;
+events  = require('events'),
+
+apiKey  = require('./apikeys').ftapi,
+
+emtr    = new events.EventEmitter();
+
+// The module is an EventEmitter
+module.exports = emtr;
 
 
-exports.search = function search(conversation) {
+/**
+ * Handle the response from a search API request.
+ *
+ * @param {Object} error
+ * @param {Object} response
+ * @param {Object} body
+ * @param {Object} conversation
+ */
+function handleSearchResponse(error, response, body, conversation) {
 
-	var queryString = '"' + conversation.tags.join('" AND "') + '"';
+	if (!body || !body.results) {
+		return;
+	}
+
+	body.results[0].results.forEach(function _processResults(item) {
+
+		conversation.ft.push({
+			title:       item.title,
+			summary:     item.summary,
+			publishDate: item.lifecycle.initialPublishDateTime,
+			url:         item.location.uri
+		});
+	});
+
+	emtr.emit('processed', conversation);
+}
+
+
+/**
+ * Search the content API for articles relevant to the given conversation.
+ *
+ * @param {Object} conversation
+ */
+function search(conversation) {
+
+	var queryString, tags;
+
+	// The tags property is an object, keyed by OpenCalais tag ID
+	tags = Object.keys(conversation.tags).map(function(t) {
+		return t.name;
+	});
+
+	queryString = '"' + tags.join('" AND "') + '"';
 
 	conversation.ft = [];
-
 
 
 /*
@@ -78,9 +130,9 @@ exports.search = function search(conversation) {
 		  "masterSource":"Methode",
 		  "masterEntityId":"cbc4a190-638d-11e1-8e79-00144feabb8e"
 	   }
- */
+*/
 
- 	queryString += ' AND (initialPublishDateTime:>2012-05-16T00:00:00Z)';
+	queryString += ' AND (initialPublishDateTime:>2012-05-16T00:00:00Z)';
 
 	request({
 			method: "POST",
@@ -97,33 +149,9 @@ exports.search = function search(conversation) {
 		},
 
 		function _resp(error, response, body) {
-			_handleSearchResponse(error, response, body, conversation);
+			handleSearchResponse(error, response, body, conversation);
 	});
 
 }
 
-
-function _handleSearchResponse(error, response, body, conversation) {
-
-	if (!body.results) return;
-
-	body.results[0].results.forEach(function _processResults(item) {
-
-		conversation.ft.push({
-			title: item.title,
-			summary: item.summary,
-			publishDate: item.lifecycle.initialPublishDateTime,
-			url: item.location.uri
-		});
-	});
-
-	_loadFullContent(conversation);
-}
-
-function _loadFullContent(conversation) {
-
-// 	conversation.ft.forEach();
-
-	helpers.realtime.broadcastConversation(conversation);
-}
-
+emtr.search = search;

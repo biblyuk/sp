@@ -1,8 +1,8 @@
 var
 
 templateCompiler = require('../helpers/templatecompiler.js'),
-Weibo            = require('../objects/weibo.js'),
-ft               = require('../objects/ft.js');
+Weibo            = require('../realtime/objects/weibo.js'),
+ft               = require('../realtime/objects/ft.js');
 
 /*
  * GET home page.
