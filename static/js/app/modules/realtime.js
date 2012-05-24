@@ -1,7 +1,7 @@
 define([
 	'jquery',
 	'underscore',
-	'/socket.io/socket.io'
+	'/socket.io/socket.io.js'
 ], function($, _) {
 	var
 
@@ -21,5 +21,5 @@ define([
 	$.subscribe('appstart', _onAppStart);
 
 
-	return exports;
+	return Realtime;
 });
