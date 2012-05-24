@@ -16,6 +16,5 @@ require([
 	'order!../libs/jquery/plugins',
 	'order!app'
 ], function($, app) {
-
 	app.init();
 });

@@ -8,14 +8,12 @@
 
 var
 
-socketio   = require('socket.io'),
-
-twitter    = require('./objects/twitter'),
-facebook   = require('./objects/facebook'),
-weibo      = require('./objects/weibo'),
+socketio = require('socket.io'),
+twitter = require('./objects/twitter'),
+facebook = require('./objects/facebook'),
+weibo = require('./objects/weibo'),
 opencalais = require('./objects/opencalais'),
-ft         = require('./objects/ft'),
-
+ft = require('./objects/ft'),
 postCache  = [],
 io;
 
@@ -135,18 +133,25 @@ function collate(postObject) {
 }
 
 
+function _onSocketConnection() {
+	console.log('Received a socket connection');
+}
+
+
 /**
  * Initialise the realtime server.
  *
  * @public
  * @param {Object} The main application controller
  */
-function init(app) {
-	io = socketio.listen(app);
+exports.init = function(app) {
+	io = exports.io = socketio.listen(app);
 
-	io.sockets.on('connection', function(socket) {
-		console.log('Received a socket connection');
-	});
+	// Turn debug logs down
+	io.set('log level', 1);
+
+	//
+	io.sockets.on('connection', _onSocketConnection);
 
 	// When OpenCalais is done processing a post, pass it on for collation
 	opencalais.on('processed', collate);
@@ -161,6 +166,4 @@ function init(app) {
 	//weibo.startStream();
 
 	ft.on('processed', broadcast);
-}
-
-exports.init = init;
+};

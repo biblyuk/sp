@@ -1,12 +1,14 @@
 var
 
-Weibo            = require('../realtime/objects/weibo.js'),
-ft               = require('../realtime/objects/ft.js');
+Weibo = require('../realtime/objects/weibo.js'),
+ft = require('../realtime/objects/ft.js'),
+realtime = require('../realtime'),
+testData = require('../data/testdata.json');
 
 /*
  * GET home page.
  */
-exports.index = function(req, res){
+exports.index = function(req, res) {
 
 
 
@@ -33,4 +35,10 @@ exports.index = function(req, res){
 exports.test = function(req, res) {
 	Weibo.startStream();
 	res.send('Done');
+};
+
+
+exports.pushNewConversation = function(req, res, next) {
+	realtime.io.sockets.emit('newConversation', testData.conversation1);
+	res.send(testData.conversation1);
 };
