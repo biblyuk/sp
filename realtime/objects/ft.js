@@ -23,8 +23,6 @@ module.exports = emtr;
  */
 function loadFullContent(conversation, url) {
 
-	console.log('\n\nloadFullContent:', url, '\n\n');
-
 	request({
 			method: "GET",
 			uri: url + "?apiKey=" + apiKey
@@ -53,14 +51,7 @@ function loadFullContent(conversation, url) {
 
 				conversation.articles.push(article);
 
-
-	console.log('\n\npending:', conversation.pendingArticleCount, '\nwaiting for:', conversation.articles.length, '\n\n');
-
-
 				if (conversation.pendingArticleCount === conversation.articles.length) {
-
-	console.log('\n\nsending completed conversation:', conversation, '\n\n');
-
 					emtr.emit('processed', conversation);
 				}
 
@@ -83,8 +74,6 @@ function search(conversation) {
 	var queryParams = [],
 	    queryString,
 	    tags = [];
-
-	console.log('\n\nConversation:', conversation, '\n\n');
 
 	// The tags property is an object, keyed by OpenCalais tag ID
 	Object.keys(conversation.tags).map(function(id) {
@@ -192,14 +181,10 @@ function search(conversation) {
 
 			var i, l, resultSet;
 
-			console.log();
-
 			if (response && response.statusCode === 200) {
 				if (!body.results[0]) {
 					return;
 				}
-
-				console.log('\n\n Search body:', body, '\n\n');
 
 				resultSet = body.results[0];
 
@@ -208,9 +193,6 @@ function search(conversation) {
 					emtr.emit('processed', conversation);
 					return;
 				}
-
-				console.log('\n\n Search resultSet:', resultSet, '\n\n');
-
 
 				conversation.pendingArticleCount = resultSet.results.length;
 				conversation.articles = [];
