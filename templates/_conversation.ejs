@@ -27,7 +27,7 @@
 				<li class="article <% if (article.image) { %>has-image<% } %>">
 					<div class="inner">
 						<% if (article.image) { %> <img src="<%= article.image.url %>"/> <% } %>
-						<h5 class="title"><%= article.title %></h5>
+						<h5 class="title"><a href="article.uri" target="_blank"><%= article.title %></a></h5>
 						<div class="excerp"><%= article.excerpt %></div>
 					</div>
 				</li>
