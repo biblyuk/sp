@@ -2,15 +2,14 @@ define([
 	'jquery',
 	'underscore',
 	'modules/realtime',
-	'text!templates/_conversation.ejs'
-], function($, _, Realtime, conversation_tmpl){
+	'modules/renderer'
+], function($, _){
 	var
 
 	App = {};
 
 	App.init = function() {
-		console.log('init', conversation_tmpl);
-		$.publish('appstart');
+		$.publish('appStart');
 	};
 
 	return App;

@@ -14,8 +14,6 @@ ntwitter = require('ntwitter'),
 twit     = new ntwitter(apiKey),
 stream;
 
-console.log(apiKey);
-
 
 // The module is an EventEmitter
 module.exports = emtr;

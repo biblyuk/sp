@@ -1,7 +1,67 @@
 {
 	"conversation1": {
-		"tags": [ "foo", "bar"],
-		"messages": [ "vdavda advadv advad", "advadvadva"],
-		"articles": [ "fodvadvo", "baadvadvr"]
+		"articles": [
+			{
+				 "excerpt": "string",
+				 "image": {
+						"alt":"string",
+						"caption":"string",
+						"height":"number",
+						"source":"string",
+						"type":"string",
+						"url":"string",
+						"width":"number"
+				 },
+				 "publishDate": "datetime",
+				 "title": "string",
+				 "uri": "string"
+			},
+			{
+				"excerpt":"string",
+				"image":{
+						"alt":"string",
+						"caption":"string",
+						"height":"number",
+						"source":"string",
+						"type":"string",
+						"url":"string",
+						"width":"number"
+				},
+				"publishDate":"datetime",
+				"title": "string",
+				"uri": "string"
+			}
+		],
+		"messages": [
+			{
+				 "id":187236817263,
+				 "message":"David Cameron is a great prime minister, and he likes Morgan Stanley",
+				 "provider":"twitter",
+				 "timestamp":1337855009098,
+				 "user": {
+					 "realname": "Ed Conway",
+					 "username": "@EdConwaySky",
+					 "location": "London",
+					 "avatar":   "https://twimg0-a.akamaihd.net/profile_images/1642180925/Ed_Conway_dirty_4.jpg"
+				 }
+			},
+			{
+				 "id":187236817263,
+				 "message":"David Cameron is a great prime minister, and he likes Morgan Stanley",
+				 "provider":"twitter",
+				 "timestamp":1337855009098,
+				 "user": {
+					 "realname": "Matthew Oakley",
+					 "username": "@PXEconomics",
+					 "location": "London",
+					 "avatar":   "https://twimg0-a.akamaihd.net/profile_images/1584969428/Matt-for-twitter.jpg"
+				 }
+			}
+		],
+		 "tags": [
+			"David Cameron",
+			"Morgan Stanley",
+			"great prime minister"
+		]
 	}
 }
