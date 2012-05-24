@@ -6,16 +6,17 @@ fs = require('fs');
 exports.compile = function(callback) {
 	var
 
-	templates = [],
-	root = __dirname + '/../templates/';
-
-
-	fs.readFile('exports.compile',  root + '_conversation.ejs', function(err, result) {
-		console.log(result);
-	});
-
-
-	async.map([
+	root = __dirname + '/../templates/',
+	templates = [
 		root + '_conversation.ejs'
-	], fs.readFile, callback);
+	];
+
+
+
+	// fs.readFile('exports.compile',  root + '_conversation.ejs', function(err, result) {
+	// 	console.log(result);
+	// });
+
+
+	async.map(templates, fs.readFile, callback);
 };
