@@ -84,8 +84,7 @@ function analyse(postObject) {
 	}
 
 	// Translate ones string
-
-//	if (postObject.provider =='weibo') {
+	if (postObject.provider =='weibo') {
 		try {
 			translate({key: googletranslatekey, q: postObject.message, target: 'en', source: 'auto'}, function(result){
 				postObject.originalMessage = postObject.message;
@@ -97,9 +96,9 @@ function analyse(postObject) {
 			console.log(e);
 
 		}
-	//} else {
-	//	_analyse(postObject);
-	//}
+	} else {
+		_analyse(postObject);
+	}
 }
 
 
