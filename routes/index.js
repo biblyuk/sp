@@ -1,7 +1,8 @@
 var
 
-realtime = require('../helpers/realtime.js'),
-tempalateCompiler = require('../helpers/templateCompiler');
+templateCompiler = require('../helpers/templatecompiler.js'),
+Weibo            = require('../realtime/objects/weibo.js'),
+ft               = require('../realtime/objects/ft.js');
 
 /*
  * GET home page.
@@ -9,12 +10,24 @@ tempalateCompiler = require('../helpers/templateCompiler');
 exports.index = function(req, res){
 
 
-	tempalateCompiler.compile(function(templates) {
+	templateCompiler.compile(function(templates) {
 
 		res.render('index', {
 			title: 'Shortest Path',
 			templates: templates
 		});
+
+		var mockConversation = {
+			social: [
+				{}
+			],
+			tags: [
+				"David Cameron", "banks"
+			]
+		};
+
+		ft.search(mockConversation);
+
 	});
 };
 
@@ -22,6 +35,6 @@ exports.index = function(req, res){
  * GET test trigger for IO update
  */
 exports.test = function(req, res) {
-	realtime.broadcastSocial('this message is going out to all users');
+	Weibo.startStream();
 	res.send('Done');
 };

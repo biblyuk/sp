@@ -12,7 +12,7 @@ audio:not([controls]) { display: none; }
 
 html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 html, button, input, select, textarea { font-family: sans-serif; color: #222; }
-body { margin: 0; font-size: 1em; line-height: 1.4; }
+body { margin: 0; font-size: 1em; line-height: 1.4; background: #fff8ed;}
 
 ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
 ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
@@ -71,7 +71,7 @@ td { vertical-align: top; }
 
 
 @media only screen and (min-width: 35em) {
-  
+
 
 }
 
@@ -86,13 +86,13 @@ td { vertical-align: top; }
 .clearfix { *zoom: 1; }
 
 @media print {
-  * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } 
+  * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; }
   a, a:visited { text-decoration: underline; }
   a[href]:after { content: " (" attr(href) ")"; }
   abbr[title]:after { content: " (" attr(title) ")"; }
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; } 
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
   pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
-  thead { display: table-header-group; } 
+  thead { display: table-header-group; }
   tr, img { page-break-inside: avoid; }
   img { max-width: 100% !important; }
   @page { margin: 0.5cm; }
@@ -101,106 +101,150 @@ td { vertical-align: top; }
 }
 
 
-* { 
-	box-sizing: border-box; 
-	margin: 0; 
+* {
+	box-sizing: border-box;
+	margin: 0;
 	padding: 0;
 }
 
-#frame { 
-	padding: 20px; 
+#frame {
+	padding: 102px 20px 20px 20px;
 	width: 600px;
 }
 
-section { 
-	margin: 20px; 
-	float: left; 
-	background-color: #cacaca; 
+section {
+	margin: 20px;
+	float: left;
+	background-color: #cacaca;
 	padding: 10px 30px 30px;
 }
 
-.clearfix:after { 
-	visibility: hidden; 
-	display: block; 
-	font-size: 0; 
-	content: " "; 
-	clear: both; 
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
 	height: 0;
 }
 
-#tags { 
+/**
+ * Headerbar
+ */
+header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+}
+header div {
+	background: #4c4c4c; /* Old browsers */
+	background: -moz-linear-gradient(top, #4c4c4c 0%, #131313 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4c4c4c), color-stop(100%,#131313)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #4c4c4c 0%,#131313 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #4c4c4c 0%,#131313 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #4c4c4c 0%,#131313 100%); /* IE10+ */
+	background: linear-gradient(top, #4c4c4c 0%,#131313 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 ); /* IE6-9 */
+	color: #FFF;
+}
+
+h1 {
+	height: 52px;
+	line-height: 52px;
+	margin: 0 0 0 10px;
+	padding: 0 20px 0 40px;
+	font-size: 21px;
+	font-weight: normal;
+	background: url(/static/img/logo.png) no-repeat left;
+}
+
+.slogan {
+	background: #FFF;
+	font-style: italic;
+	color: #999;
+	font-size: 13px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 0 0 10px;
+	-moz-box-shadow:    0 0 8px 0 #999;
+	-webkit-box-shadow: 0 0 8px 0 #999;
+	box-shadow:         0 0 8px 0 #999;
+}
+
+#tags {
 	margin-bottom: 10px;
 }
 
-#tags button { 
-	height: 30px; 
-	padding: 7px; 
-	margin-right: 10px; 
+#tags button {
+	height: 30px;
+	padding: 7px;
+	margin-right: 10px;
 	background-color: #ffbe97;
 	border: none;
 }
 
-.conversation { 
+.conversation {
 	padding: 10px;
 }
 
-.social { 
-	margin-bottom: 30px; 
+.social {
+	margin-bottom: 30px;
 	background-color: #78b4f9;
 }
 
-.ft { 
+.ft {
 	background-color: #fff1e0;
 }
 
-article { 
-	float: left; 
-	display: block; 
-	width: 230px; 
-	padding: 10px; 
-	margin: 10px; 
+article {
+	float: left;
+	display: block;
+	width: 230px;
+	padding: 10px;
+	margin: 10px;
 	position: relative;
 	outline: 1px solid grey;
 }
 
-article.feature { 
+article.feature {
 	width: 480px;
 }
 
-article img, .username, .date, .title { 
+article img, .username, .date, .title {
 	position: absolute;
 }
 
-article img { 
-	top: 10px; 
-	left: 10px; 
-	width: 40px; 
+article img {
+	top: 10px;
+	left: 10px;
+	width: 40px;
 }
 
-.social article img { 
+.social article img {
 	height: 40px;
 }
 
-.ft article img { 
+.ft article img {
 	width: 90px;
 }
 
-article p.title { 
-	top: 10px; 
-	left: 70px; 
+article p.title {
+	top: 10px;
+	left: 70px;
 	font-weight: bold;
 }
 
-article p.username { 
-	top: 10px; 
+article p.username {
+	top: 10px;
 	left: 70px;
 }
 
-article p.date { 
-	top: 30px; 
+article p.date {
+	top: 30px;
 	left: 70px;
 }
 
-article p.message { 
+article p.message {
 	padding-top: 60px;
 }

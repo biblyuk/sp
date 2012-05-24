@@ -2,33 +2,18 @@
 
 var socket = io.connect('/');
 
-function streamUpdate(object) {
+function conversationsUpdate(conversation) {
 
 	/**
-	 * TODO:MA:20120523 This is where we would add the latest social updates to the UI
+	 * TODO:MA:20120523 This is where we would add the latest conversation updates to the UI
 	 */
+
+	console.log("Recieved a new conversation", conversation);
 
 }
 
-function articleUpdate(object) {
-
-	/**
-	 * TODO:MA:20120523 This is where we would add the latest article updates to the UI
-	 */
-
-}
-
-socket.on('social update', function(object) {
+socket.on('conversation update', function(object) {
 
 	// Refresh the UI
-	console.log("Recieved a stream update from IO", object);
-	streamUpdate(msg);
-
-});
-
-socket.on('article update', function(object) {
-
-	// Refresh the UI
-	console.log("Recieved an article update from IO", object);
-	articleUpdate();
+	conversationsUpdate(object);
 });

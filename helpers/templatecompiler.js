@@ -11,12 +11,5 @@ exports.compile = function(callback) {
 		root + '_conversation.ejs'
 	];
 
-
-
-	// fs.readFile('exports.compile',  root + '_conversation.ejs', function(err, result) {
-	// 	console.log(result);
-	// });
-
-
 	async.map(templates, fs.readFile, callback);
 };
