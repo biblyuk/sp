@@ -173,23 +173,23 @@ function _onSocketConnection() {
 exports.init = function(app) {
 	io = exports.io = socketio.listen(app);
 
-	// // Turn debug logs down
-	// io.set('log level', 1);
+	// Turn debug logs down
+	io.set('log level', 1);
 
-	// //
-	// io.sockets.on('connection', _onSocketConnection);
+	//
+	io.sockets.on('connection', _onSocketConnection);
 
-	// // When OpenCalais is done processing a post, pass it on for collation
-	// opencalais.on('processed', collate);
+	// When OpenCalais is done processing a post, pass it on for collation
+	opencalais.on('processed', collate);
 
-	// twitter.on('post', analyse);
-	// twitter.startStream();
+	twitter.on('post', analyse);
+	twitter.startStream();
 
-	// facebook.on('post', analyse);
-	// facebook.startStream();
+	facebook.on('post', analyse);
+	facebook.startStream();
 
-	// weibo.on('post', analyse);
-	// weibo.startStream();
+	weibo.on('post', analyse);
+	weibo.startStream();
 
-	// ft.on('processed', broadcast);
+	ft.on('processed', broadcast);
 };
