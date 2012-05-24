@@ -16,7 +16,7 @@ opencalais = require('./objects/opencalais'),
 ft = require('./objects/ft'),
 postCache  = [],
 convoCache = [],
-translate = require('../libraries/node-google-translate/lib/translate.js'),
+translate = require('../libraries/translate.js'),
 assert = require('assert'),
 googletranslatekey = require('../data/apikeys.json').googleapis,
 io;
