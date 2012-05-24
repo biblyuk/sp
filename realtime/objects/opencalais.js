@@ -164,8 +164,21 @@ function process(postObject, ocResponse) {
 			continue;
 		}
 
+		// Ignore Tweets starting with RT - OpenCalais mistakenly tags 'RT' as a 'Position' type
+		if (tag.name === 'RT' && postObject.provider === 'twitter' && postObject.message.slice(0, 2) === 'RT') {
+			continue;
+		}
+
+		// Ignore wrongly tagged MT (mentioned tweet)
+		if (postObject.provider === 'twitter' && tag.name.slice(0, 4) === 'MT @') {
+			continue;
+		}
+
 		// The tags object is keyed by OpenCalais IDs, to easily avoid/detect dupes
 		postObject.tags[tag.id] = tag;
+
+		// COMPLEX:MCG: Add a count that will be incremented later
+		tag.count = 1;
 	}
 
 	emtr.emit('processed', postObject);

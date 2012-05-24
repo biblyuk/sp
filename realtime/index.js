@@ -111,7 +111,7 @@ function analyse(postObject) {
  * @param {Object} postObject The post object
  */
 function collate(postObject) {
-	var i, k, l, p, t, score, conversation, numtags,
+	var i, k, l, score, conversation, numtags,
 	hasConvo = false;
 
 	console.log('Realtime server collating:', postObject.provider, postObject.id);
@@ -152,7 +152,6 @@ function collate(postObject) {
 
 			if (!conversation.tags.hasOwnProperty(k)) {
 				conversation.tags[k] = postObject.tags[k];
-				conversation.tags[k].count = 1;
 			} else {
 				conversation.tags[k].count++;
 			}
