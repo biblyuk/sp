@@ -9,7 +9,7 @@ var
 
 events   = require('events'),
 emtr     = new events.EventEmitter(),
-apiKeys   = require('../../data/apikeys.json').twitter,
+apiKeys  = require('../../data/apikeys.json').twitter,
 ntwitter = require('ntwitter'),
 twit     = new ntwitter(apiKeys),
 stream;
