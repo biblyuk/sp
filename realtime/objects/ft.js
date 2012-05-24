@@ -193,7 +193,7 @@ function search(conversation) {
 					return;
 				}
 
-				resultSet = body.results[0].results;
+				resultSet = body.results[0];
 
 				if (!resultSet.indexCount) {
 					return;
