@@ -23,8 +23,7 @@ exports.index = function(req, res){
 
 
 	res.render('index', {
-		title: 'Shortest Path',
-		templates: templates
+		title: 'Shortest Path'
 	});
 };
 

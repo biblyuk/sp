@@ -11,8 +11,11 @@ events   = require('events'),
 emtr     = new events.EventEmitter(),
 apiKey   = require('../../data/apikeys.json').twitter,
 ntwitter = require('ntwitter'),
-twit     = new ntwitter(apiKey.access_token_key),
+twit     = new ntwitter(apiKey),
 stream;
+
+console.log(apiKey);
+
 
 // The module is an EventEmitter
 module.exports = emtr;

@@ -25,7 +25,7 @@ app.configure(function() {
 	app.use('/templates', express['static'](__dirname + '/templates'));
 
 	// Init realtime server
-	realtime.init(app);
+	//realtime.init(app);
 });
 
 app.configure('development', function(){
