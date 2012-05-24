@@ -176,6 +176,9 @@ function process(postObject, ocResponse) {
 
 		// The tags object is keyed by OpenCalais IDs, to easily avoid/detect dupes
 		postObject.tags[tag.id] = tag;
+
+		// COMPLEX:MCG: Add a count that will be incremented later
+		tag.count = 1;
 	}
 
 	emtr.emit('processed', postObject);
