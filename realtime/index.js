@@ -51,7 +51,7 @@ function trimCaches() {
  * @param {Object} conversation A conversation object
  */
 function broadcast(conversation) {
-	console.log('Realtime server broadcasting:', conversation);
+	console.log('Realtime server broadcasting conversation ', conversation.id);
 
 	io.sockets.emit('newConversation', conversation);
 }
@@ -176,11 +176,10 @@ function collate(postObject) {
 
 function _onSocketConnection() {
 	var i, l;
-	console.log('Received a socket connection');
+	console.log('Received a socket connection, resending existing conversations');
 
 	// Send existing convos to the client
 	for (i=0, l=convoCache.length; i<l; i++) {
-		console.log('resend', convoCache[i]);
 		if (!convoCache[i].articles) continue; // Ignore convos which have been processed by ft.js
 		broadcast(convoCache[i]);
 	}
