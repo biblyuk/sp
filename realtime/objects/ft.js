@@ -23,6 +23,8 @@ module.exports = emtr;
  */
 function loadFullContent(conversation, url) {
 
+	console.log('\n\nloadFullContent:', url, '\n\n');
+
 	request({
 			method: "GET",
 			uri: url + "?apiKey=" + apiKey
@@ -55,7 +57,21 @@ function loadFullContent(conversation, url) {
 					conversation.articles.push(article);
 				}
 
+
+	console.log('\n\nloadFullContent:', url, article, '\n\n');
+
+				if (!conversation.articles) conversation.articles = [];
+
+				conversation.articles.push(article);
+
+
+	console.log('\n\npending:', conversation.pendingArticleCount, '\nwaiting for:', conversation.articles.length, '\n\n');
+
+
 				if (conversation.pendingArticleCount === conversation.articles.length) {
+
+	console.log('\n\nsending completed conversation:', conversation, '\n\n');
+
 					emtr.emit('processed', conversation);
 				}
 
@@ -78,6 +94,8 @@ function search(conversation) {
 	    queryString,
 	    tags = [];
 
+	console.log('\n\nConversation:', conversation, '\n\n');
+
 	// The tags property is an object, keyed by OpenCalais tag ID
 	Object.keys(conversation.tags).map(function(id) {
 
@@ -87,8 +105,6 @@ function search(conversation) {
 			return;
 		}
 
-		console.log(tag);
-
 		queryParams.push(tag.type + ':"' + tag.name + '"');
 	});
 
@@ -96,10 +112,8 @@ function search(conversation) {
 		return;
 	}
 
-	queryString = queryParams.join(' AND ');
+	queryString = queryParams.join(' OR ');
 	queryString += ' AND (initialPublishDateTime:>2012-05-16T00:00:00Z)';
-
-	console.log('\n\n', queryString, '\n\n', conversation.tags, '\n\n');
 
 /*
 	Valid query fields:
@@ -188,23 +202,32 @@ function search(conversation) {
 
 			var i, l, resultSet;
 
+			console.log();
+
 			if (response && response.statusCode === 200) {
 				if (!body.results[0]) {
 					return;
 				}
 
+				console.log('\n\n Search body:', body, '\n\n');
+
 				resultSet = body.results[0];
 
 				if (!resultSet.indexCount) {
+					console.log('\n\n No results for Search API query:\n' + queryString + '\n\n');
+					emtr.emit('processed', conversation);
 					return;
 				}
 
-				conversation.pendingArticleCount = resultSet.length;
+				console.log('\n\n Search resultSet:', resultSet, '\n\n');
 
-				for (i = 0, l = resultSet.length; i < l; i++) {
+
+				conversation.pendingArticleCount = resultSet.results.length;
+
+				for (i = 0, l = resultSet.results.length; i < l; i++) {
 
 					// Load each article from the Content API
-					loadFullContent(conversation, resultSet[i].apiUrl);
+					loadFullContent(conversation, resultSet.results[i].apiUrl);
 				}
 
 			} else {

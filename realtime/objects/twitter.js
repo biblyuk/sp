@@ -105,7 +105,6 @@ function startStream() {
 
 		stream.on('error', function(errorType, errorCode) {
 			console.log("\n\n\nTwitter experienced a %s error %d\n\n\n", errorType, errorCode);
-			console.trace();
 		});
 	});
 }
