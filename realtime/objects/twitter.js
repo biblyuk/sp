@@ -93,8 +93,9 @@ function startStream() {
 	});
 
 	/* Get any existing tweets */
-	twit.getFriendsTimeline(null, function (dunno, tweets){
+	twit.getFriendsTimeline(null, function (err, tweets){
 		var i, l, tweet;
+		if (err) return;
 		for (i=0, l=tweets.length; i<l; i++) {
 			tweet = tweets[i];
 			emtr.emit('post', {
