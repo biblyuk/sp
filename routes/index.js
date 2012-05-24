@@ -29,15 +29,6 @@ exports.index = function(req, res) {
 	});
 };
 
-/*
- * GET test trigger for IO update
- */
-exports.test = function(req, res) {
-	Weibo.startStream();
-	res.send('Done');
-};
-
-
 exports.pushNewConversation = function(req, res, next) {
 	realtime.io.sockets.emit('newConversation', testData.conversation1);
 	res.send(testData.conversation1);

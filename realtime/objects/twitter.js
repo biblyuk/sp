@@ -9,11 +9,10 @@ var
 
 events   = require('events'),
 emtr     = new events.EventEmitter(),
-apiKey   = require('../../data/apikeys.json').twitter,
+apiKeys   = require('../../data/apikeys.json').twitter,
 ntwitter = require('ntwitter'),
-twit     = new ntwitter(apiKey),
+twit     = new ntwitter(apiKeys),
 stream;
-
 
 // The module is an EventEmitter
 module.exports = emtr;
@@ -83,7 +82,7 @@ function startStream() {
 
 		stream.on('error', function (errortype, errorcode) {
 			console.log("Twitter experienced a "+errortype+" error "+errorcode);
-		})
+		});
 	});
 }
 

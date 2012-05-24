@@ -82,15 +82,16 @@ function analyse(postObject) {
  */
 function collate(postObject) {
 	var i, k, l, p, t, score, conversation;
-
+console.log('postcache', postCache);
 	console.log('Realtime server collating:', postObject);
 
 	for (i = 0, l = postCache.length; i < l; i++) {
-		if (p === postObject) {
+		p = postCache[i];
+
+		if (p === postObject || !p.tags) {
 			continue;
 		}
 
-		p = postCache[i];
 		t = {};
 		score = 0;
 
@@ -160,10 +161,10 @@ exports.init = function(app) {
 	twitter.startStream();
 
 	facebook.on('post', analyse);
-	facebook.startPolling();
+	facebook.startStream();
 
 	weibo.on('post', analyse);
-	//weibo.startStream();
+	weibo.startStream();
 
 	ft.on('processed', broadcast);
 };
