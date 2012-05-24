@@ -16,7 +16,7 @@ opencalais = require('./objects/opencalais'),
 ft = require('./objects/ft'),
 postCache  = [],
 convoCache = [],
-translate = require('node-google-translate'),
+translate = require('../libraries/translate.js'),
 assert = require('assert'),
 googletranslatekey = require('../data/apikeys.json').googleapis,
 io;
@@ -83,11 +83,10 @@ function analyse(postObject) {
 		opencalais.send(postObject);
 	}
 
-	// Translate ones string
-
+	// COMPLEX:MA:20120524 Only for Chinese so that we don't use up our limit
 	if (postObject.provider =='weibo') {
 		try {
-			translate({key: googletranslatekey, q: postObject.message, target: 'en', source: 'zh-CN'}, function(result){
+			translate({key: googletranslatekey, q: postObject.message, target: 'en', source: 'auto'}, function(result){
 				postObject.originalMessage = postObject.message;
 				postObject.message = result[postObject.originalMessage];
 				_analyse(postObject);
