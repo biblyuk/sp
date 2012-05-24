@@ -88,7 +88,7 @@ function startStream(req, res) {
 
 			// Recieved tweets
 			if (data.length > 0) {
-				console.log("Weibo: Received " + data.length + " tweets");
+				//console.log("Weibo: Received " + data.length + " tweets");
 
 				lastTweet = data[0].id;
 				for(var i=0, l = data.length; i < l; i++) {
