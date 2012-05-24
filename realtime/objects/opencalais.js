@@ -37,7 +37,7 @@ function process(postObject, ocResponse) {
 		ocResponse = JSON.parse(ocResponse);
 	} catch (e) {
 		if (e instanceof SyntaxError) {
-			console.log("OpenCalais returned error: \n",ocResponse);
+			console.log("OpenCalais returned error: \n",ocResponse, postObject);
 		} else {
 			console.error('Unable to parse OpenCalais response', e);
 		}
@@ -108,7 +108,8 @@ function consume() {
 				'x-calais-licenseID': apiKey,
 				'content-type': 'text/raw',
 				'accept': 'application/json',
-				'enableMetadataType': 'GenericRelations,SocialTags'
+				'enableMetadataType': 'GenericRelations,SocialTags',
+				'content-length': postObject.message.length
 			}
 		},
 		function(res) {

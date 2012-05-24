@@ -57,7 +57,6 @@ function broadcast(conversation) {
  */
 function analyse(postObject) {
 
-<<<<<<< HEAD
 	function _analyse(postObject) {
 		// Don't do anything if the post is already known
 		if (postCache.some(function(p) {
@@ -71,9 +70,7 @@ function analyse(postObject) {
 		trimCache();
 
 		// TODO:MCG: Detect the language first using Google TR. If the language is en, es or fr, send to language-specific OpenCalais method. Otherwise perform a translation to English then send to OpenCalais.
-=======
-	console.log('Realtime server analysing:', postObject.provider, postObject.id);
->>>>>>> 84a1d0f4f7cdf00331ecb884c7cc85801714ab38
+		console.log('Realtime server analysing:', postObject.provider, postObject.id);
 
 		// Send to OpenCalais for analysis
 		opencalais.send(postObject);
