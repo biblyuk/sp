@@ -15,6 +15,8 @@ define([
 	function _onNewConversation(event, conversation) {
 		var html, existingConversion;
 
+		console.log('New conversation received:', conversation);
+
 		// Covert timestapm pto relative time
 		//conversation.time = Utils.relativeTime(conversation.timestamp);
 		html = conversation_tmpl({ conversation: conversation, _: _, toRelativeTime: Utils.relativeTime }),
@@ -24,7 +26,7 @@ define([
 		if (existingConversion.length) {
 
 			// remove the existing conversation
-			//existingConversion.remove();
+			existingConversion.remove();
 		}
 
 		$($els.conversationList).prepend(html);

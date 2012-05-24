@@ -108,7 +108,7 @@ function process(postObject, ocResponse) {
 		ocResponse = JSON.parse(ocResponse);
 	} catch (e) {
 		if (e instanceof SyntaxError) {
-			console.log("OpenCalais returned error: \n",ocResponse, postObject);
+			console.log("OpenCalais returned error: \n",ocResponse);
 		} else {
 			console.error('Unable to parse OpenCalais response', e);
 		}
@@ -137,8 +137,13 @@ function process(postObject, ocResponse) {
 			tag = obj.resolutions[0];
 		} else {
 			tag = {
-				id:   key1,
+				id:   key1
 			};
+		}
+
+		// Skip URLs
+		if (tag.type === 'URL') {
+			continue;
 		}
 
 		if (typeMapping[obj._type]) {
@@ -154,6 +159,10 @@ function process(postObject, ocResponse) {
 			continue;
 		}
 
+		// Further check for URLs
+		if (tag.name.slice(0, 4) === 'http:') {
+			continue;
+		}
 
 		// The tags object is keyed by OpenCalais IDs, to easily avoid/detect dupes
 		postObject.tags[tag.id] = tag;
