@@ -53,7 +53,7 @@ function trimCaches() {
 function broadcast(conversation) {
 	console.log('Realtime server broadcasting:', conversation);
 
-	io.sockets.emit('conversation update', conversation);
+	io.sockets.emit('newConversation', conversation);
 }
 
 
