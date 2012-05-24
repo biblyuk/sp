@@ -15,6 +15,9 @@ weibo = require('./objects/weibo'),
 opencalais = require('./objects/opencalais'),
 ft = require('./objects/ft'),
 postCache  = [],
+translate = require('node-google-translate'),
+assert = require('assert'),
+googletranslatekey = require('../data/apikeys.json').googletranslate,
 io;
 
 
@@ -54,23 +57,41 @@ function broadcast(conversation) {
  */
 function analyse(postObject) {
 
-	console.log('Realtime server analysing:', postObject);
+	function _analyse(postObject) {
+		// Don't do anything if the post is already known
+		if (postCache.some(function(p) {
+			return (p.id === postObject.id && p.provider === postObject.provider);
+		})) {
+			return;
+		}
 
-	// Don't do anything if the post is already known
-	if (postCache.some(function(p) {
-		return (p.id === postObject.id && p.provider === postObject.provider);
-	})) {
-		return;
+		// Keep track of posts from the first step
+		postCache.push(postObject);
+		trimCache();
+
+		// TODO:MCG: Detect the language first using Google TR. If the language is en, es or fr, send to language-specific OpenCalais method. Otherwise perform a translation to English then send to OpenCalais.
+
+		// Send to OpenCalais for analysis
+		opencalais.send(postObject);
 	}
 
-	// Keep track of posts from the first step
-	postCache.push(postObject);
-	trimCache();
+	// Translate ones string
 
-	// TODO:MCG: Detect the language first using Google TR. If the language is en, es or fr, send to language-specific OpenCalais method. Otherwise perform a translation to English then send to OpenCalais.
+	if (postObject.provider =='weibo') {
+		try {
+			translate({key: googletranslatekey, q: postObject.message, target: 'en', source: 'zh-CN'}, function(result){
+				postObject.originalMessage = postObject.message;
+				postObject.message = result[postObject.originalMessage];
+				_analyse(postObject);
+				
+			});
+		} catch(e){
+			console.log(e);
 
-	// Send to OpenCalais for analysis
-	opencalais.send(postObject);
+		}
+	} else {
+		_analyse(postObject);
+	}
 }
 
 

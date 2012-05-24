@@ -85,7 +85,7 @@ function startStream() {
 
 		stream.on('error', function (errortype, errorcode) {
 			console.log("Twitter experienced a "+errortype+" error "+errorcode);
-		})
+		});
 	});
 }
 

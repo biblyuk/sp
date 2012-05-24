@@ -46,7 +46,6 @@ function getToken(){
 		var user = {};
 
 		if (error) {
-			console.log("An error");
 			console.error(error);
 		} else {
 
@@ -58,7 +57,6 @@ function getToken(){
 
 			tapi.verify_credentials(user, function(error, data, xhr) {
 				if (error) {
-					console.log("An error");
 					console.error(error);
 				} else {
 					console.log(data);
@@ -85,15 +83,15 @@ function startStream(req, res) {
 
 	tapi.friends_timeline(data, function(error, data, xhr) {
 		if (error) {
-			console.log("An error");
 			console.error(error);
 		} else {
 
 			// Recieved tweets
 			if (data.length > 0) {
 				console.log("Weibo: Received " + data.length + " tweets");
+
 				lastTweet = data[0].id;
-				for(var i, l = data.length; i < l; i++) {
+				for(var i=0, l = data.length; i < l; i++) {
 					var tweet = data[i];
 					emtr.emit('post', {
 						provider:  'weibo',
