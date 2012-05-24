@@ -108,7 +108,7 @@ function process(postObject, ocResponse) {
 		ocResponse = JSON.parse(ocResponse);
 	} catch (e) {
 		if (e instanceof SyntaxError) {
-			console.log("OpenCalais returned error: \n",ocResponse);
+			console.log("OpenCalais returned error");
 		} else {
 			console.error('Unable to parse OpenCalais response', e);
 		}
