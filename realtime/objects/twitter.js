@@ -9,7 +9,7 @@ var
 
 events   = require('events'),
 emtr     = new events.EventEmitter(),
-apiKeys   = require('../../data/apikeys.json').twitter,
+apiKeys  = require('../../data/apikeys.json').twitter,
 ntwitter = require('ntwitter'),
 twit     = new ntwitter(apiKeys),
 stream;
@@ -84,24 +84,28 @@ function startStream() {
 				});
 			} catch (e) {
 				console.log("Error after getting tweet", e);
+				return;
 			}
+
+			console.log("Twitter stream: received tweet from %s", tweet.user.screen_name);
 		});
 
-		stream.on('end', function (response) {
+		stream.on('end', function(response) {
 			console.error("Twitter stream disconnected");
 
 			// Destroy the stream
 			stopStream();
 		});
 
-		stream.on('destroy', function (response) {
+		stream.on('destroy', function(response) {
 
 			// Handle a 'silent' disconnection from Twitter, no end/error event fired
 			console.log("Twitter stream destroyed");
 		});
 
-		stream.on('error', function (errortype, errorcode) {
-			console.log("Twitter experienced a "+errortype+" error "+errorcode);
+		stream.on('error', function(errorType, errorCode) {
+			console.log("\n\n\nTwitter experienced a %s error %d\n\n\n", errorType, errorCode);
+			console.trace();
 		});
 	});
 }

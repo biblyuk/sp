@@ -16,7 +16,8 @@ opencalais = require('./objects/opencalais'),
 ft = require('./objects/ft'),
 postCache  = [],
 convoCache = [],
-translate = require('node-google-translate'),
+convoInc = 1,
+translate = require('../libraries/translate.js'),
 assert = require('assert'),
 googletranslatekey = require('../data/apikeys.json').googleapis,
 io;
@@ -52,7 +53,7 @@ function trimCaches() {
 function broadcast(conversation) {
 	console.log('Realtime server broadcasting:', conversation);
 
-	io.sockets.emit('conversation update', conversation);
+	io.sockets.emit('newConversation', conversation);
 }
 
 
@@ -77,17 +78,16 @@ function analyse(postObject) {
 		trimCaches();
 
 		// TODO:MCG: Detect the language first using Google TR. If the language is en, es or fr, send to language-specific OpenCalais method. Otherwise perform a translation to English then send to OpenCalais.
-		console.log('Realtime server analysing:', postObject.provider, postObject.id);
+		//console.log('Realtime server analysing:', postObject.provider, postObject.id);
 
 		// Send to OpenCalais for analysis
 		opencalais.send(postObject);
 	}
 
-	// Translate ones string
-
+	// COMPLEX:MA:20120524 Only for Chinese so that we don't use up our limit
 	if (postObject.provider =='weibo') {
 		try {
-			translate({key: googletranslatekey, q: postObject.message, target: 'en', source: 'zh-CN'}, function(result){
+			translate({key: googletranslatekey, q: postObject.message, target: 'en', source: 'auto'}, function(result){
 				postObject.originalMessage = postObject.message;
 				postObject.message = result[postObject.originalMessage];
 				_analyse(postObject);
@@ -110,56 +110,52 @@ function analyse(postObject) {
  * @param {Object} postObject The post object
  */
 function collate(postObject) {
-	var i, k, l, p, t, score, conversation;
+	var i, k, l, p, t, score, conversation, numtags,
+	hasConvo = false;
 
 	console.log('Realtime server collating:', postObject.provider, postObject.id);
 
-	for (i = 0, l = postCache.length; i < l; i++) {
-		p = postCache[i];
+	for (i = 0, l = convoCache.length; i < l; i++) {
+		conversation = convoCache[i];
 
-		if (p === postObject || !p.tags) {
-			continue;
-		}
-
-		t = {};
+		// Work out a score for this post in the conversation
 		score = 0;
-
-		// Check for matches
+		numtags = 0;
 		for (k in postObject.tags) {
-			score--;
-
-			if (postObject.tags.hasOwnProperty(k)) {
-				if (p.tags.hasOwnProperty(k)) {
-					score++;
-
-					t[k] = p.tags[k];
-				}
+			if (!postObject.tags.hasOwnProperty(k)) continue;
+			numtags++;
+			if (conversation.tags.hasOwnProperty(k)) {
+				score++;
 			}
 		}
+		if (!numtags) return; // If a post has no tags, ignore it completly
 
-		if (t.score <= 0) {
-			continue;
-		}
+		score /= numtags;
 
-		if (!conversation) {
-			conversation = {
-				messages: [postObject, p],
-				tags:     t
-			};
-		} else {
-			conversation.messages.push(p);
+		// a post needs more than 30% of tags to join a conversation
+		if (score < 0.3) continue;
 
-			for (k in t) {
-				if (t.hasOwnProperty(k) && !conversation.tags.hasOwnProperty(k)) {
-					conversation.tags[k] = t;
-				}
+		// Add the rest of the post's tags to the convo
+		for (k in postObject.tags) {
+			if (!postObject.tags.hasOwnProperty(k)) continue;
+			if (!conversation.tags.hasOwnProperty(k)) {
+				conversation.tags[k] = postObject.tags[k];
 			}
 		}
-	}
-
-	if (conversation) {
+		conversation.messages.push(postObject);
+		hasConvo = true;
 		ft.search(conversation);
 	}
+
+	// If a post doesn't match any conversations, create a new one, but don't send it to ftsearch until another post joins it
+	if (!hasConvo) {
+		convoCache.push({
+			messages: [postObject],
+			tags:     postObject.tags || [],
+			id: convoInc++
+		});
+	}
+
 }
 
 

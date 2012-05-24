@@ -95,16 +95,16 @@ function getAccessToken(callback) {
 			});
 
 			res.on('end', function() {
-				console.log("Facebook stream: got access token", data);
+				//console.log("Facebook stream: got access token", data);
 
 				callback(querystring.parse(data).access_token);
 			});
 		});
 
-	console.log("Facebook stream: getting access from %s", req.path);
+	//console.log("Facebook stream: getting access from %s", req.path);
 
 	req.setTimeout(10000, function() {
-		console.log("Facebook stream: timed out while getting access token");
+		//console.log("Facebook stream: timed out while getting access token");
 	});
 
 	req.on('error', function(e) {
@@ -148,7 +148,7 @@ function startPolling(accessToken) {
 						try {
 							data = JSON.parse(data).data;
 						} catch (e) {
-							console.log("Facebook stream: error parsing stream for user '%s'", user);
+							//console.log("Facebook stream: error parsing stream for user '%s'", user);
 						}
 
 						if (data && data.length) {
