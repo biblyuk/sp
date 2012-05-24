@@ -9,21 +9,6 @@ testData = require('../data/testdata.json');
  * GET home page.
  */
 exports.index = function(req, res) {
-
-
-
-	var mockConversation = {
-		social: [
-			{}
-		],
-		tags: [
-			"David Cameron", "banks"
-		]
-	};
-
-	ft.search(mockConversation);
-
-
 	res.render('index', {
 		title: 'Shortest Path'
 	});

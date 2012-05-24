@@ -41,24 +41,6 @@ function stopStream() {
 function startStream() {
 
 
-/*
-
-	emtr.emit('post', {
-		provider:  'twitter',
-		id:        187236817263,
-		message:   "David Cameron is a great prime minister, and he lives in London",
-		timestamp: new Date().getTime(),
-		user:      {
-			realname: "George",
-			username: "george",
-			location: "London",
-			avatar:   "http://www.google.co.uk/images/srpr/logo3w.png"
-		}
-	});
-
-*/
-
-
 	twit.stream('user', function(s) {
 		stream = s;
 
