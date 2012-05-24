@@ -10,9 +10,7 @@ var
 events = require('events'),
 weibo  = require('weibo'),
 
-querystring = require('querystring'),
-
-secret = require('./apikeys.js').weibo,
+secret = require('../../data/apikeys.json').weibo,
 
 emtr   = new events.EventEmitter(),
 
@@ -52,11 +50,15 @@ function getToken(){
 			console.error(error);
 		} else {
 
+<<<<<<< HEAD
 			user = {
 				oauth_token_key: data.oauth_token_key,
 				oauth_token_secret: data.oauth_token_secret,
 				authtype: 'oauth'
 			};
+=======
+	tapi.init('tsina', appKey, secret.secret, oauth_callback_url);
+>>>>>>> 3919f1a32dc97869d8580495384d2a9e995578da
 
 			tapi.verify_credentials(user, function(error, data, xhr) {
 				if (error) {

@@ -9,9 +9,7 @@ var
 
 request = require('request'),
 events  = require('events'),
-
-apiKey  = require('./apikeys').ftapi,
-
+apiKey  = require('../../data/apikeys.json').ftapi,
 emtr    = new events.EventEmitter();
 
 // The module is an EventEmitter

@@ -39,6 +39,7 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', routes.index);
+app.get('/push/newconversation', routes.pushNewConversation);
 
 app.listen(5000); // Must be reverse proxied from port 80
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
