@@ -37,7 +37,7 @@ define([
 		if (existingConversion.length) {
 
 			// remove the existing conversation
-			//existingConversion.remove();
+			existingConversion.remove();
 		}
 
 		$(els.conversationList).prepend(html);
