@@ -152,7 +152,7 @@ function init(app) {
 	opencalais.on('processed', collate);
 
 	twitter.on('post', analyse);
-	//twitter.startStream();
+	twitter.startStream();
 
 	facebook.on('post', analyse);
 	facebook.startPolling();
