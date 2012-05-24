@@ -16,6 +16,56 @@ emtr    = new events.EventEmitter();
 module.exports = emtr;
 
 
+/**
+ * Load a full article.
+ *
+ * @private
+ */
+function loadFullContent(conversation, url) {
+
+	request({
+			method: "GET",
+			uri: url + "?apiKey=" + apiKey
+		},
+
+		function(error, response, body) {
+
+			var article;
+
+			if (response && response.statusCode === 200) {
+
+				try {
+					article = JSON.parse(body).item;
+				} catch (e) {
+					console.error('Unable to parse Content API response', e);
+					return;
+				}
+
+				article = {
+					"excerpt":     article.summary.excerpt,
+					"image":       (article.images ? article.images[0] : ''),
+					"publishDate": article.lifecycle.initialPublishDateTime,
+					"title":       article.title.title,
+					"uri":         article.location.uri
+				};
+
+				if (!conversation.articles) {
+					conversation.articles = [article];
+				} else {
+					conversation.articles.push(article);
+				}
+
+				if (conversation.pendingArticleCount === conversation.articles.length) {
+					emtr.emit('processed', conversation);
+				}
+
+			} else {
+				console.log('Content API error: '+ ((response && response.statusCode) || '(unknown)'));
+				console.log(body);
+			}
+		});
+}
+
 
 /**
  * Search the content API for articles relevant to the given conversation.
@@ -33,7 +83,7 @@ function search(conversation) {
 
 		var tag = conversation.tags[id];
 
-		if (tag.type == 'generic') {
+		if (tag.type === 'generic') {
 			return;
 		}
 
@@ -42,17 +92,14 @@ function search(conversation) {
 		queryParams.push(tag.type + ':"' + tag.name + '"');
 	});
 
-	if (!queryParams.length) return;
+	if (!queryParams.length) {
+		return;
+	}
 
 	queryString = queryParams.join(' AND ');
 	queryString += ' AND (initialPublishDateTime:>2012-05-16T00:00:00Z)';
 
-	conversation.ft = [];
-
 	console.log('\n\n', queryString, '\n\n', conversation.tags, '\n\n');
-
-	return;
-
 
 /*
 	Valid query fields:
@@ -121,6 +168,7 @@ function search(conversation) {
 	   }
 */
 
+	// Post to the Search API
 	request(
 		{
 			method: "POST",
@@ -136,20 +184,27 @@ function search(conversation) {
 			}
 		},
 
-		function _resp(error, response, body) {
+		function(error, response, body) {
 
 			var i, l, resultSet;
 
-			if (response && response.statusCode == 200) {
+			if (response && response.statusCode === 200) {
+				if (!body.results[0]) {
+					return;
+				}
 
-				for (i = 0, l = body.results.length; i < l; i++) {
-					resultSet = body.results[i];
+				resultSet = body.results[0].results;
 
-					if (!resultSet.indexCount) continue;
+				if (!resultSet.indexCount) {
+					return;
+				}
 
-					resultSet.results.forEach(function _processResults(item) {
-						_loadFullContent(conversation, item.apiUrl);
-					});
+				conversation.pendingArticleCount = resultSet.length;
+
+				for (i = 0, l = resultSet.length; i < l; i++) {
+
+					// Load each article from the Content API
+					loadFullContent(conversation, resultSet[i].apiUrl);
 				}
 
 			} else {
@@ -162,49 +217,5 @@ function search(conversation) {
 	);
 
 }
-
-function _loadFullContent(conversation, url) {
-
-
-	request(
-		{
-			method: "GET",
-			uri: url + "?apiKey=" + apiKey
-		},
-
-		function _resp(error, response, body) {
-
-			var articleJson, article;
-
-			if (response && response.statusCode == 200) {
-
-				try {
-					articleJson = JSON.parse(body);
-					articleJson = articleJson.item;
-				} catch (e) {
-					console.error('Unable to parse Content API response', e);
-					return;
-				}
-
-				var article = {
-					"excerpt" : articleJson.summary.excerpt,
-					"image": (articleJson.images ? articleJson.images[0] : []),
-					"publishDate" : articleJson.lifecycle.initialPublishDateTime,
-					"title" : articleJson.title.title,
-					"uri" : articleJson.location.uri
-				};
-				console.log(article);
-
-			} else {
-				console.log('Content API error: '+ ((response && response.statusCode) || '(unknown)'));
-				console.log(body);
-			}
-		}
-	);
-
-
-// 	emtr.emit('processed', conversation);
-}
-
 
 emtr.search = search;
