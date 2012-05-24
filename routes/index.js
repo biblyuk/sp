@@ -30,11 +30,3 @@ exports.index = function(req, res){
 
 	});
 };
-
-/*
- * GET test trigger for IO update
- */
-exports.test = function(req, res) {
-	Weibo.startStream();
-	res.send('Done');
-};
