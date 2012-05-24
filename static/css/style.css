@@ -218,10 +218,10 @@ h1 {
 .conversation__tags { background: #999; }
 
 
-.conversation__tags { border-bottom-right-radius: 0; border-bottom-left-radius: 0; }
+.conversation__tags { padding: 6px; border-bottom-right-radius: 0; border-bottom-left-radius: 0; }
 .conversation__tags > .tag {
 	float: left;
-	margin: 6px;
+	margin-left: 6px;
 	margin-right: 0;
 	padding: 4px 8px;
 	border-radius: 4px;
@@ -230,6 +230,8 @@ h1 {
 	font-size: 13px;
 	font-weight: normal;
 }
+
+.conversation__tags > .tag:first-child { margin-left: 0; }
 
 
 .conversation__messages {
@@ -240,7 +242,7 @@ h1 {
 .conversation__messages > .message,
 .conversation__articles > .article {
 	position: relative;
-	min-height: 60px;
+	min-height: 64px;
 	padding: 8px;
 	border-bottom: solid 1px #EEE;
 	color: #555;
@@ -258,7 +260,7 @@ h1 {
 .conversation__messages > .message .time,
 .conversation__messages > .message .location,
 .conversation__messages > .message .provider { font-style: italic; color: #999;}
-.conversation__messages > .message .body {  }
+.conversation__messages > .message .body {}
 
 
 
