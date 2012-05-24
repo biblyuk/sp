@@ -17,10 +17,81 @@ List   = require('../../base/list'),
 queue  = new List(),
 sent   = new List(),
 
-emtr   = new events.EventEmitter();
+emtr   = new events.EventEmitter(),
+
+
+
+
+typeMapping = {
+
+	"Product": {
+		"ft": "brand",
+		"key": "Product"
+	},
+	"ProductIssues": {
+		"ft": "brand",
+		"key": "Product"
+	},
+	"ProductRecall": {
+		"ft": "brand",
+		"key": "Product"
+	},
+	"ProductRelease": {
+		"ft": "brand",
+		"key": "Product"
+	},
+	"CompanyProduct": {
+		"ft": "brand",
+		"key": "Product"
+	},
+	"Company": {
+		"ft": "companies",
+		"key": "Company"
+	},
+	"Organization": {
+		"ft": "organisations",
+		"key": "Organization"
+	},
+	"Person": {
+		"ft": "people",
+		"key": "Person"
+	},
+	"Region": {
+		"ft": "regions",
+		"key": "Region"
+	},
+	"City": {
+		"ft": "regions",
+		"key": "City"
+	},
+	"Country": {
+		"ft": "regions",
+		"key": "Country"
+	},
+	"Continent": {
+		"ft": "regions",
+		"key": "Continent"
+	},
+	"ProvinceOrState": {
+		"ft": "regions",
+		"key": "ProvinceOrState"
+	}
+};
+
+
+
+
+
+
+
 
 // The module is an EventEmitter
 module.exports = emtr;
+
+
+
+
+
 
 
 /**
@@ -51,7 +122,7 @@ function process(postObject, ocResponse) {
 
 		obj = ocResponse[key1];
 
-		if (!obj._typeGroup) {
+		if (!obj._type) {
 			continue;
 		}
 
@@ -67,12 +138,22 @@ function process(postObject, ocResponse) {
 		} else {
 			tag = {
 				id:   key1,
-				name: obj.name
 			};
 		}
 
-		tag.type      = obj._type;
-		tag.typeGroup = obj._typeGroup;
+		if (typeMapping[obj._type]) {
+			tag.type = typeMapping[obj._type].ft;
+		} else {
+			tag.type = 'generic';
+		}
+
+		tag.name = obj.name;
+
+		// Only add if "name" param is populated
+		if (!tag.name) {
+			continue;
+		}
+
 
 		// The tags object is keyed by OpenCalais IDs, to easily avoid/detect dupes
 		postObject.tags[tag.id] = tag;

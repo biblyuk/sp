@@ -18,7 +18,7 @@ postCache  = [],
 convoCache = [];
 translate = require('node-google-translate'),
 assert = require('assert'),
-googletranslatekey = require('../data/apikeys.json').googletranslate,
+googletranslatekey = require('../data/apikeys.json').googleapis,
 io;
 
 
@@ -91,7 +91,7 @@ function analyse(postObject) {
 				postObject.originalMessage = postObject.message;
 				postObject.message = result[postObject.originalMessage];
 				_analyse(postObject);
-				
+
 			});
 		} catch(e){
 			console.log(e);

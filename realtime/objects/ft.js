@@ -16,33 +16,6 @@ emtr    = new events.EventEmitter();
 module.exports = emtr;
 
 
-/**
- * Handle the response from a search API request.
- *
- * @param {Object} error
- * @param {Object} response
- * @param {Object} body
- * @param {Object} conversation
- */
-function handleSearchResponse(error, response, body, conversation) {
-
-	if (!body || !body.results) {
-		return;
-	}
-
-	body.results[0].results.forEach(function _processResults(item) {
-
-		conversation.ft.push({
-			title:       item.title,
-			summary:     item.summary,
-			publishDate: item.lifecycle.initialPublishDateTime,
-			url:         item.location.uri
-		});
-	});
-
-	emtr.emit('processed', conversation);
-}
-
 
 /**
  * Search the content API for articles relevant to the given conversation.
@@ -51,14 +24,26 @@ function handleSearchResponse(error, response, body, conversation) {
  */
 function search(conversation) {
 
-	var queryString, tags;
+	var queryParams = [],
+	    queryString,
+	    tags = [];
 
 	// The tags property is an object, keyed by OpenCalais tag ID
-	tags = Object.keys(conversation.tags).map(function(t) {
-		return t.name;
+	Object.keys(conversation.tags).map(function(id) {
+
+		var tag = conversation.tags[id];
+
+		if (tag.type !== 'generic') {
+			queryParams.push(tag.type + ':"' + tag.name + '"');
+		} else {
+			//queryParams.push('"' + tag.name + '"');
+		}
 	});
 
-	queryString = '"' + tags.join('" AND "') + '"';
+	if (!queryParams.length) return;
+
+	queryString = queryParams.join(' AND ');
+	queryString += ' AND (initialPublishDateTime:>2012-05-16T00:00:00Z)';
 
 	conversation.ft = [];
 
@@ -130,9 +115,8 @@ function search(conversation) {
 	   }
 */
 
-	queryString += ' AND (initialPublishDateTime:>2012-05-16T00:00:00Z)';
-
-	request({
+	request(
+		{
 			method: "POST",
 			uri: "http://api.ft.com/content/search/v1?apiKey=" + apiKey,
 			json: {
@@ -147,9 +131,77 @@ function search(conversation) {
 		},
 
 		function _resp(error, response, body) {
-			handleSearchResponse(error, response, body, conversation);
-	});
+
+			var i, l, resultSet;
+
+			if (response && response.statusCode == 200) {
+
+				for (i = 0, l = body.results.length; i < l; i++) {
+					resultSet = body.results[i];
+
+					if (!resultSet.indexCount) continue;
+
+					resultSet.results.forEach(function _processResults(item) {
+						_loadFullContent(conversation, item.apiUrl);
+					});
+				}
+
+			} else {
+
+				// NB: 429 is throttled
+				console.log('Search API error: '+ ((response && response.statusCode) || '(unknown)'));
+				console.log(body);
+			}
+		}
+	);
 
 }
+
+function _loadFullContent(conversation, url) {
+
+
+
+
+
+	request(
+		{
+			method: "GET",
+			uri: url + "?apiKey=" + apiKey
+		},
+
+		function _resp(error, response, body) {
+
+			var articleJson, article;
+
+			if (response && response.statusCode == 200) {
+
+				try {
+					articleJson = JSON.parse(body);
+					articleJson = articleJson.item;
+				} catch (e) {
+					console.error('Unable to parse Content API response', e);
+					return;
+				}
+
+				var article = {
+					"excerpt" : articleJson.summary.excerpt,
+					"image": (articleJson.images ? articleJson.images[0] : []),
+					"publishDate" : articleJson.lifecycle.initialPublishDateTime,
+					"title" : articleJson.title.title,
+					"uri" : articleJson.location.uri
+				};
+				console.log(article);
+
+			} else {
+				console.log('Content API error: '+ ((response && response.statusCode) || '(unknown)'));
+				console.log(body);
+			}
+		}
+	);
+
+
+// 	emtr.emit('processed', conversation);
+}
+
 
 emtr.search = search;
