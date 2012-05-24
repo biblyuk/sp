@@ -2,7 +2,7 @@
 	<div class="inner">
 		<ul class="conversation__tags clearfix">
 			<% _.forEach(conversation.tags, function(tag) { %>
-				<li class="tag"><%= tag %></li>
+				<li class="tag"><%= tag.name %></li>
 			<% }); %>
 		</ul>
 		<ul class="conversation__messages">
@@ -25,7 +25,6 @@
 			<% _.forEach(conversation.articles, function(article) { %>
 				<li class="article">
 					<div class="inner">
-						<img src="<%= article.image.url %>">
 						<h5 class="title"><%= article.title %></h5>
 						<div class="excerp"><%= article.excerpt %></div>
 					</div>
