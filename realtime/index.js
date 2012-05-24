@@ -16,6 +16,7 @@ opencalais = require('./objects/opencalais'),
 ft = require('./objects/ft'),
 postCache  = [],
 convoCache = [],
+convoInc = 1,
 translate = require('../libraries/translate.js'),
 assert = require('assert'),
 googletranslatekey = require('../data/apikeys.json').googleapis,
@@ -77,7 +78,7 @@ function analyse(postObject) {
 		trimCaches();
 
 		// TODO:MCG: Detect the language first using Google TR. If the language is en, es or fr, send to language-specific OpenCalais method. Otherwise perform a translation to English then send to OpenCalais.
-		console.log('Realtime server analysing:', postObject.provider, postObject.id);
+		//console.log('Realtime server analysing:', postObject.provider, postObject.id);
 
 		// Send to OpenCalais for analysis
 		opencalais.send(postObject);
@@ -150,7 +151,8 @@ function collate(postObject) {
 	if (!hasConvo) {
 		convoCache.push({
 			messages: [postObject],
-			tags:     postObject.tags || []
+			tags:     postObject.tags || [],
+			id: convoInc++
 		});
 	}
 

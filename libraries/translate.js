@@ -23,7 +23,7 @@ module.exports = function(opts, callback) {
         result[orig] = strings[i];
       });
       callback(result);
-      console.log("English > English Translation - skipping");
+      //console.log("English > English Translation - skipping");
       return;
     }
     
@@ -60,7 +60,7 @@ module.exports = function(opts, callback) {
       var strings = util.isArray(opts.q) ? opts.q : [opts.q];
       var sourceLangs = {};
       opts.source = json.data.detections[0][0].language;
-      console.log(opts.source + " > English Translation - translating");
+      //console.log(opts.source + " > English Translation - translating");
       _translate(opts, callback);
     });
   }
