@@ -189,25 +189,24 @@ h1 {
 
 .app-content { padding: 82px 0 100px; }
 
-.conversation-list { padding: 10px; }
+.conversation-list { margin: 20px 0; position: relative; }
 
 .conversation {
 	box-sizing: border-box;
 	display: inline-block;
 	vertical-align: top;
-	width: 33.33%;
-	padding: 10px;
+	width: 400px;
 }
 
 
-@media all and (max-width: 1200px) {
+/*@media all and (max-width: 1200px) {
 	.conversation { width: 50%; }
 }
 
 
 @media all and (max-width: 750px) {
 	.conversation { width: 100%; }
-}
+}*/
 
 
 .conversation > .inner,
@@ -218,10 +217,11 @@ h1 {
 .conversation__tags { background: #999; }
 
 
-.conversation__tags { padding: 6px; border-bottom-right-radius: 0; border-bottom-left-radius: 0; }
+.conversation__tags { padding: 6px 6px 0 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; }
 .conversation__tags > .tag {
 	float: left;
 	margin-left: 6px;
+	margin-bottom: 6px;
 	margin-right: 0;
 	padding: 4px 8px;
 	border-radius: 4px;
@@ -231,7 +231,6 @@ h1 {
 	font-weight: normal;
 }
 
-.conversation__tags > .tag:first-child { margin-left: 0; }
 
 
 .conversation__messages {

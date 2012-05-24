@@ -175,7 +175,15 @@ function collate(postObject) {
 
 
 function _onSocketConnection() {
+	var i, l;
 	console.log('Received a socket connection');
+
+	// Send existing convos to the client
+	for (i=0, l=convoCache.length; i<l; i++) {
+		console.log('resend', convoCache[i]);
+		if (!convoCache[i].articles) continue; // Ignore convos which have been processed by ft.js
+		broadcast(convoCache[i]);
+	}
 }
 
 
@@ -206,5 +214,16 @@ exports.init = function(app) {
 	weibo.on('post', analyse);
 	weibo.startStream();
 
-	ft.on('processed', broadcast);
+	ft.on('processed', function (conversation) {
+		var i, l;
+
+		// Resave conversation object in cache (not sure if this is entirely needed, but just incase ;)
+		for (i=0, l=convoCache.length; i<l; i++) {
+			if (convoCache[i].id == conversation.id) {
+				convoCache[i] = conversation;
+				break;
+			}
+		}
+		broadcast(conversation);
+	});
 };

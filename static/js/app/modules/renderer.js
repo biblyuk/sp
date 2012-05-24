@@ -7,13 +7,15 @@ define([
 	var
 
 	Renderer = {},
-	$els = {};
+	els = {};
 
 
 
 
 	function _onNewConversation(event, conversation) {
 		var html, existingConversion;
+
+		console.log('New conversation received:', conversation);
 
 		// Covert timestapm pto relative time
 		//conversation.time = Utils.relativeTime(conversation.timestamp);
@@ -24,12 +26,17 @@ define([
 		if (existingConversion.length) {
 
 			// remove the existing conversation
-			existingConversion.remove();
+			//existingConversion.remove();
 		}
 
-		$($els.conversationList).prepend(html);
+		$(els.conversationList).prepend(html);
 
-
+		$(els.conversationList).find('.conversation').wookmark({
+		  container: $(els.conversationList),
+		  offset: 20,
+		  itemWidth: 400,
+		  autoResize: true
+		});
 	}
 
 
@@ -37,7 +44,7 @@ define([
 	function _onAppStart() {
 
 		// Cache the list elments
-		$els.conversationList = $('#js-conversation-list');
+		els.conversationList = $('#js-conversation-list');
 
 		// Compile the template function
 		conversation_tmpl = _.template(conversation_tmpl);
