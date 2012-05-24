@@ -78,6 +78,7 @@ function loadFullContent(conversation, url) {
 			} else {
 				console.log('Content API error: '+ ((response && response.statusCode) || '(unknown)'));
 				console.log(body);
+				conversation.pendingArticleCount--;
 			}
 		});
 }
@@ -223,6 +224,7 @@ function search(conversation) {
 
 
 				conversation.pendingArticleCount = resultSet.results.length;
+				conversation.articles = [];
 
 				for (i = 0, l = resultSet.results.length; i < l; i++) {
 
