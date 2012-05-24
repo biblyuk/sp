@@ -87,21 +87,21 @@ function startStream() {
 			}
 		});
 
-		stream.on('end', function (response) {
+		stream.on('end', function(response) {
 			console.error("Twitter stream disconnected");
 
 			// Destroy the stream
 			stopStream();
 		});
 
-		stream.on('destroy', function (response) {
+		stream.on('destroy', function(response) {
 
 			// Handle a 'silent' disconnection from Twitter, no end/error event fired
 			console.log("Twitter stream destroyed");
 		});
 
-		stream.on('error', function (errortype, errorcode) {
-			console.log("Twitter experienced a "+errortype+" error "+errorcode);
+		stream.on('error', function(errorType, errorCode) {
+			console.log("Twitter experienced a %s error %d", errorType, errorCode);
 		});
 	});
 }
