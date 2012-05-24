@@ -167,7 +167,7 @@ h1 {
 }
 
 .slogan {
-	display: none;
+	/*display: none;*/
 	background: #FFF;
 	font-style: italic;
 	color: #999;
@@ -188,7 +188,7 @@ h1 {
 
 
 
-.app-content { padding: 52px 0 100px; }
+.app-content { padding: 82px 0 100px; }
 
 .conversation-list { margin: 20px 0; position: relative; }
 
