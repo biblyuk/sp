@@ -50,15 +50,11 @@ function getToken(){
 			console.error(error);
 		} else {
 
-<<<<<<< HEAD
 			user = {
 				oauth_token_key: data.oauth_token_key,
 				oauth_token_secret: data.oauth_token_secret,
 				authtype: 'oauth'
 			};
-=======
-	tapi.init('tsina', appKey, secret.secret, oauth_callback_url);
->>>>>>> 3919f1a32dc97869d8580495384d2a9e995578da
 
 			tapi.verify_credentials(user, function(error, data, xhr) {
 				if (error) {
@@ -75,7 +71,7 @@ function getToken(){
 
 function startStream(req, res) {
 
-	var data = { 
+	var data = {
 		user : {
 			oauth_token_key: secret.oauth_token_key,
 			oauth_token_secret: secret.oauth_token_secret,
