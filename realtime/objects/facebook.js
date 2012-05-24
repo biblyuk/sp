@@ -157,7 +157,8 @@ function startPolling(accessToken) {
 							data.some(function(post) {
 								var dateDiff = Date.now() - new Date(post.created_time).getTime();
 
-								if (dateDiff > 86400000) { // Less than one day
+								//if (dateDiff > 86400000) { // Less than one day
+								if (dateDiff > 2592000000) { // Less than ten day
 									return true;
 								}
 

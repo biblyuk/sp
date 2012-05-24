@@ -112,7 +112,7 @@ function search(conversation) {
 		return;
 	}
 
-	queryString = queryParams.join(' OR ');
+	queryString = queryParams.join(' AND ');
 	queryString += ' AND (initialPublishDateTime:>2012-05-16T00:00:00Z)';
 
 /*

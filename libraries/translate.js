@@ -55,7 +55,7 @@ module.exports = function(opts, callback) {
       if (err) throw err;
       var json = JSON.parse(body);
       if (json.error){
-        throw json.error.message;
+        throw new Error(json.error.message);
       }
       var strings = util.isArray(opts.q) ? opts.q : [opts.q];
       var sourceLangs = {};
