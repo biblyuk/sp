@@ -145,6 +145,8 @@ function startPolling(accessToken) {
 					});
 
 					res.on('end', function() {
+						var timeoutIncr = 0;
+
 						try {
 							data = JSON.parse(data).data;
 						} catch (e) {
@@ -166,18 +168,22 @@ function startPolling(accessToken) {
 									return false;
 								}
 
-								emtr.emit('post', {
-									provider:  'facebook',
-									id:        post.id,
-									message:   post.message,
-									timestamp: new Date(post.created_time).getTime(),
-									user:      {
-										realname: post.from.name,
-										username: user,
-										location: '',
-										avatar:   'https://graph.facebook.com/' + user + '/picture'
-									}
-								});
+								setTimeout(function() {
+									emtr.emit('post', {
+										provider:  'facebook',
+										id:        post.id,
+										message:   post.message,
+										timestamp: new Date(post.created_time).getTime(),
+										user:      {
+											realname: post.from.name,
+											username: user,
+											location: '',
+											avatar:   'https://graph.facebook.com/' + user + '/picture'
+										}
+									});
+								}, 500 + timeoutIncr);
+
+								timeoutIncr = timeoutIncr + 500;
 
 								return false;
 							});
