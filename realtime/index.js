@@ -83,7 +83,7 @@ function analyse(postObject) {
 		opencalais.send(postObject);
 	}
 
-	// Translate ones string
+	// COMPLEX:MA:20120524 Only for Chinese so that we don't use up our limit
 	if (postObject.provider =='weibo') {
 		try {
 			translate({key: googletranslatekey, q: postObject.message, target: 'en', source: 'auto'}, function(result){
