@@ -24,9 +24,6 @@
 		<h4 class="conversation__articles-title">Matching articles</h3>
 		<ul class="conversation__articles">
 			<% _.forEach(conversation.articles, function(article) { %>
-
-
-
 				<li class="article <% if (article.image) { %>has-image<% } %>">
 					<div class="inner">
 						<% if (article.image) { %> <img src="<%= article.image.url %>"/> <% } %>
@@ -35,6 +32,10 @@
 					</div>
 				</li>
 			<% }); %>
+
+			<% if (!conversation.articles) { %>
+				<li class="article">No matching articles found</li>
+			<%  } %>
 		</ul>
 	</div>
 </li>

@@ -23,8 +23,6 @@ module.exports = emtr;
  */
 function loadFullContent(conversation, url) {
 
-	console.log('\n\nloadFullContent:', url, '\n\n');
-
 	request({
 			method: "GET",
 			uri: url + "?apiKey=" + apiKey
@@ -53,14 +51,7 @@ function loadFullContent(conversation, url) {
 
 				conversation.articles.push(article);
 
-
-	console.log('\n\npending:', conversation.pendingArticleCount, '\nwaiting for:', conversation.articles.length, '\n\n');
-
-
 				if (conversation.pendingArticleCount === conversation.articles.length) {
-
-	console.log('\n\nsending completed conversation:', conversation, '\n\n');
-
 					emtr.emit('processed', conversation);
 				}
 
@@ -81,22 +72,42 @@ function loadFullContent(conversation, url) {
 function search(conversation) {
 
 	var queryParams = [],
-	    queryString,
-	    tags = [];
-
-	console.log('\n\nConversation:', conversation, '\n\n');
+		queryString,
+		tags = [];
 
 	// The tags property is an object, keyed by OpenCalais tag ID
-	Object.keys(conversation.tags).map(function(id) {
+	function compare(a,b) {
+		if (parseInt(a.count,10) < parseInt(b.count,10)) {
+			return -1;
+		}
+		if (parseInt(a.count,10) > parseInt(b.count,10)) {
+			return 1;
+		}
+		return 0;
+	}
 
-		var tag = conversation.tags[id];
+	var tagsArray = [];
+
+	Object.keys(conversation.tags).map(function(id) {
+		tagsArray.push(conversation.tags[id]);
+	});
+
+	tagsArray.sort(compare);
+
+	conversation.tags = {};
+	var id=0;
+	while(id < 3 && tagsArray[id]){
+		var tag = tagsArray[id];
 
 		if (tag.type === 'generic') {
 			return;
 		}
 
+		conversation.tags[id] = tag;
+
 		queryParams.push(tag.type + ':"' + tag.name + '"');
-	});
+		id++;
+	}
 
 	if (!queryParams.length) {
 		return;
@@ -104,6 +115,7 @@ function search(conversation) {
 
 	queryString = queryParams.join(' AND ');
 	queryString += ' AND (initialPublishDateTime:>2012-05-16T00:00:00Z)';
+
 
 /*
 	Valid query fields:
@@ -192,14 +204,10 @@ function search(conversation) {
 
 			var i, l, resultSet;
 
-			console.log();
-
 			if (response && response.statusCode === 200) {
 				if (!body.results[0]) {
 					return;
 				}
-
-				console.log('\n\n Search body:', body, '\n\n');
 
 				resultSet = body.results[0];
 
@@ -208,9 +216,6 @@ function search(conversation) {
 					emtr.emit('processed', conversation);
 					return;
 				}
-
-				console.log('\n\n Search resultSet:', resultSet, '\n\n');
-
 
 				conversation.pendingArticleCount = resultSet.results.length;
 				conversation.articles = [];

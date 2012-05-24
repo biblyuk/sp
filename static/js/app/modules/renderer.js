@@ -10,6 +10,17 @@ define([
 	els = {};
 
 
+	function _getItemWidth() {
+		var
+
+		win_w = $(window).width();
+		percentage = (win_w < 750) ? 1 :
+			(win_w < 1200) ? 0.5 :
+			0.333;
+
+		return win_w * percentage;
+	}
+
 
 
 	function _onNewConversation(event, conversation) {
