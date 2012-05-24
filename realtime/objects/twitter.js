@@ -8,13 +8,10 @@
 var
 
 events   = require('events'),
-
 emtr     = new events.EventEmitter(),
-
-apiKey   = require('./apikeys.js').twitter,
+apiKey   = require('../../data/apikeys.json').twitter,
 ntwitter = require('ntwitter'),
-twit     = new ntwitter(apiKey),
-
+twit     = new ntwitter(apiKey.access_token_key),
 stream;
 
 // The module is an EventEmitter
@@ -45,7 +42,7 @@ function startStream() {
 	twit.stream('user', function(s) {
 		stream = s;
 
-		stream.on('data', function(tweet) { 
+		stream.on('data', function(tweet) {
 			if (!tweet.text) {
 				return;
 			}
@@ -70,7 +67,7 @@ function startStream() {
 			// Destroy the stream
 			stopStream();
 		});
-	
+
 		stream.on('destroy', function (response) {
 
 			// Handle a 'silent' disconnection from Twitter, no end/error event fired

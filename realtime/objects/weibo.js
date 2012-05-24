@@ -9,9 +9,7 @@ var
 
 events = require('events'),
 weibo  = require('weibo'),
-
-secret = require('./apikeys.js').weibo,
-
+secret = require('../../data/apikeys.json').weibo,
 emtr   = new events.EventEmitter();
 
 // The module is an EventEmitter
@@ -24,7 +22,7 @@ function startStream() {
 	appKey = 2669146070,
 	oauth_callback_url = 'http://localhost:3000/testingweibo' || 'oob';
 
-	tapi.init('tsina', appKey, secret, oauth_callback_url);
+	tapi.init('tsina', appKey, secret.secret, oauth_callback_url);
 
 	tapi.friends({}, function(error, data, xhr) {
 	    if (error) {

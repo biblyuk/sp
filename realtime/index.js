@@ -152,13 +152,13 @@ function init(app) {
 	opencalais.on('processed', collate);
 
 	twitter.on('post', analyse);
-	twitter.startStream();
+	//twitter.startStream();
 
 	facebook.on('post', analyse);
 	facebook.startPolling();
 
 	weibo.on('post', analyse);
-	weibo.startStream();
+	//weibo.startStream();
 
 	ft.on('processed', broadcast);
 }

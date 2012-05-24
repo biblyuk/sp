@@ -9,8 +9,7 @@ var
 
 events   = require('events'),
 emtr     = new events.EventEmitter(),
-
-apiKey   = require('./apikeys.js').facebook;
+apiKey   = require('../../data/apikeys.json').facebook;
 
 // The module is an EventEmitter
 module.exports = emtr;

@@ -5,12 +5,12 @@
  * @author Matthew Caruana Galizia
  */
 
-var 
+var
 
 http   = require('http'),
 events = require('events'),
 
-apiKey = require('./apikeys').opencalais,
+apiKey = require('../../data/apikeys.json').opencalais,
 
 List   = require('../../base/list'),
 
