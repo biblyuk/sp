@@ -100,13 +100,6 @@ function consume() {
 	queue.remove(postObject);
 	sent.append(postObject);
 
-	if (postObject.message === undefined) {
-		console.log(postObject);
-
-		return;
-
-	}
-
 	req = http.request({
 			host: 'api.opencalais.com',
 			path: '/tag/rs/enrich',
