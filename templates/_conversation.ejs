@@ -1,1 +1,20 @@
-<div>test</div>
+<div class="conversation">
+	<div class="inner">
+		<ul class="conversation__tags clearfix">
+			<% _.forEach(conversation.tags, function(tag) { %>
+				<li class="tag"><%= tag %></li>
+			<% }); %>
+		</ul>
+		<ul class="conversation__messsages">
+			<% _.forEach(conversation.messages, function(message) { %>
+				<li class="message"><%= message.user.realname %></li>
+			<% }); %>
+		</ul>
+		<h4 class="conversation__articles-title">Matching articles</h3>
+		<ul class="conversation__articles">
+			<% _.forEach(conversation.articles, function(article) { %>
+				<li class="article"><%= article.excerpt %></li>
+			<% }); %>
+		</ul>
+	</div>
+</div>

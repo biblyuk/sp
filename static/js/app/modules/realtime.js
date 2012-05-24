@@ -11,7 +11,6 @@ define([
 
 	function _onNewConversation(data) {
 		$.publish('newConversation', data);
-		console.log('newConversation', data);
 	}
 
 	function _onUpdateConversation(data) {
@@ -32,7 +31,7 @@ define([
 	}
 
 	// Events
-	$.subscribe('appstart', _onAppStart);
+	$.subscribe('appStart', _onAppStart);
 
 	// Return public
 	return Realtime;
