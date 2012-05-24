@@ -256,7 +256,8 @@ h1 {
 .conversation__messages > .message img { width: 48px; height: 48px; }
 .conversation__messages > .message .name { font-weight: bold; line-height: 1em; }
 .conversation__messages > .message .time,
-.conversation__messages > .message .location { font-style: italic; color: #999;}
+.conversation__messages > .message .location,
+.conversation__messages > .message .provider { font-style: italic; color: #999;}
 .conversation__messages > .message .body {  }
 
 
@@ -271,7 +272,7 @@ h1 {
 	border-bottom-right-radius: 0;
 }
 
-.conversation__articles > .article { padding-left: 164px; }
+.conversation__articles > .article.has-image { min-height: 120px; padding-left: 164px; }
 .conversation__articles > .article img { width: 148px; }
 .conversation__articles > .article .title { font-size: 16px; }
 

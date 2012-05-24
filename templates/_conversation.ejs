@@ -2,7 +2,7 @@
 	<div class="inner">
 		<ul class="conversation__tags clearfix">
 			<% _.forEach(conversation.tags, function(tag) { %>
-				<li class="tag"><%= tag %></li>
+				<li class="tag"><%= tag.name %></li>
 			<% }); %>
 		</ul>
 		<ul class="conversation__messages">
@@ -14,6 +14,7 @@
 							<span class="name"><%= message.user.realname %></span>
 							<span class="time"> <%= toRelativeTime(message.timestamp) %></span>
 							<span class="location"> <%= message.user.location %></span>
+							<span class="provider"> via <%= message.provider %></span>
 						</div>
 						<div class="body"><%= message.message %></div>
 					</div>
@@ -23,8 +24,12 @@
 		<h4 class="conversation__articles-title">Matching articles</h3>
 		<ul class="conversation__articles">
 			<% _.forEach(conversation.articles, function(article) { %>
-				<li class="article">
+
+
+
+				<li class="article <% if (article.image) { %>has-image<% } %>">
 					<div class="inner">
+						<% if (article.image) { %> <img src="<%= article.image.url %>"/> <% } %>
 						<h5 class="title"><%= article.title %></h5>
 						<div class="excerp"><%= article.excerpt %></div>
 					</div>
