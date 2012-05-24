@@ -160,7 +160,7 @@ exports.init = function(app) {
 	twitter.startStream();
 
 	facebook.on('post', analyse);
-	facebook.startPolling();
+	facebook.startStream();
 
 	weibo.on('post', analyse);
 	//weibo.startStream();
