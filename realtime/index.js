@@ -66,6 +66,7 @@ function broadcast(conversation) {
 function analyse(postObject) {
 
 	function _analyse(postObject) {
+
 		// Don't do anything if the post is already known
 		if (postCache.some(function(p) {
 			return (p.id === postObject.id && p.provider === postObject.provider);
@@ -85,7 +86,7 @@ function analyse(postObject) {
 	}
 
 	// COMPLEX:MA:20120524 Only for Chinese so that we don't use up our limit
-	if (postObject.provider =='weibo') {
+	if (postObject.provider === 'weibo') {
 		try {
 			translate({key: googletranslatekey, q: postObject.message, target: 'en', source: 'auto'}, function(result){
 				postObject.originalMessage = postObject.message;
@@ -122,24 +123,38 @@ function collate(postObject) {
 		score = 0;
 		numtags = 0;
 		for (k in postObject.tags) {
-			if (!postObject.tags.hasOwnProperty(k)) continue;
+			if (!postObject.tags.hasOwnProperty(k)) {
+				continue;
+			}
+
 			numtags++;
+
 			if (conversation.tags.hasOwnProperty(k)) {
 				score++;
 			}
 		}
-		if (!numtags) return; // If a post has no tags, ignore it completly
+		if (!numtags) {
+			return; // If a post has no tags, ignore it completly
+		}
 
 		score /= numtags;
 
 		// a post needs more than 30% of tags to join a conversation
-		if (score < 0.3) continue;
+		if (score < 0.3) {
+			continue;
+		}
 
 		// Add the rest of the post's tags to the convo
 		for (k in postObject.tags) {
-			if (!postObject.tags.hasOwnProperty(k)) continue;
+			if (!postObject.tags.hasOwnProperty(k)) {
+				continue;
+			}
+
 			if (!conversation.tags.hasOwnProperty(k)) {
 				conversation.tags[k] = postObject.tags[k];
+				conversation.tags[k].count = 1;
+			} else {
+				conversation.tags[k].count++;
 			}
 		}
 		conversation.messages.push(postObject);
