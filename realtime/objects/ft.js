@@ -131,6 +131,8 @@ function search(conversation) {
 				_loadFullContent(conversation, queue);
 
 			} else {
+
+				// 429 is throttled
 				console.log('error: '+ ((response && response.statusCode) || '(unknown)'));
 				console.log(body);
 			}
