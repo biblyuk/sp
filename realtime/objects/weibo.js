@@ -109,9 +109,9 @@ function startStream(req, res) {
 								avatar:   tweet.user.profile_image_url
 							}
 						});
-					}, 500 + timeoutIncr);
+					}, 200 + timeoutIncr);
 
-					timeoutIncr = timeoutIncr + 500;
+					timeoutIncr = timeoutIncr + 200;
 				}
 
 			}

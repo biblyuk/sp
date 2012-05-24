@@ -125,9 +125,9 @@ function startStream() {
 						avatar:   tweet.user.profile_image_url
 					}
 				});
-			}, 500 + timeoutIncr);
+			}, 200 + timeoutIncr);
 
-			timeoutIncr = timeoutIncr + 500;
+			timeoutIncr = timeoutIncr + 200;
 			console.log("Twitter stream: received backlog tweet from %s", tweet.user.screen_name);
 		}
 	});

@@ -181,9 +181,9 @@ function startPolling(accessToken) {
 											avatar:   'https://graph.facebook.com/' + user + '/picture'
 										}
 									});
-								}, 500 + timeoutIncr);
+								}, 200 + timeoutIncr);
 
-								timeoutIncr = timeoutIncr + 500;
+								timeoutIncr = timeoutIncr + 200;
 
 								return false;
 							});
