@@ -106,6 +106,29 @@ function startStream() {
 		stream.on('error', function(errorType, errorCode) {
 			console.log("\n\n\nTwitter experienced a %s error %d\n\n\n", errorType, errorCode);
 		});
+
+
+	});
+
+	/* Get any existing tweets */
+	twit.getFriendsTimeline(null, function (dunno, tweets){
+		var i, l, tweet;
+		for (i=0, l=tweets.length; i<l; i++) {
+			tweet = tweets[i];
+			emtr.emit('post', {
+				provider:  'twitter',
+				id:        tweet.id,
+				message:   tweet.text,
+				timestamp: new Date(tweet.created_at).getTime(),
+				user:      {
+					realname: tweet.user.name,
+					username: tweet.user.screen_name,
+					location: tweet.user.location,
+					avatar:   tweet.user.profile_image_url
+				}
+			});
+			console.log("Twitter stream: received backlog tweet from %s", tweet.user.screen_name);
+		}
 	});
 }
 
