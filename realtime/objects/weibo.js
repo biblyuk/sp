@@ -82,6 +82,8 @@ function startStream(req, res) {
 	}
 
 	tapi.friends_timeline(data, function(error, data, xhr) {
+		var timeoutIncr = 0;
+
 		if (error) {
 			console.error(error);
 		} else {
@@ -93,18 +95,23 @@ function startStream(req, res) {
 				lastTweet = data[0].id;
 				for(var i=0, l = data.length; i < l; i++) {
 					var tweet = data[i];
-					emtr.emit('post', {
-						provider:  'weibo',
-						id:        tweet.id,
-						message:   tweet.text,
-						timestamp: new Date(tweet.created_at).getTime(),
-						user:      {
-							realname: tweet.user.name,
-							username: tweet.user.screen_name,
-							location: tweet.user.location,
-							avatar:   tweet.user.profile_image_url
-						}
-					});
+
+					setTimeout(function() {
+						emtr.emit('post', {
+							provider:  'weibo',
+							id:        tweet.id,
+							message:   tweet.text,
+							timestamp: new Date(tweet.created_at).getTime(),
+							user:      {
+								realname: tweet.user.name,
+								username: tweet.user.screen_name,
+								location: tweet.user.location,
+								avatar:   tweet.user.profile_image_url
+							}
+						});
+					}, 500 + timeoutIncr);
+
+					timeoutIncr = timeoutIncr + 500;
 				}
 
 			}
