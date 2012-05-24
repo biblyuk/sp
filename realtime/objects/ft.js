@@ -51,17 +51,6 @@ function loadFullContent(conversation, url) {
 					"uri":         article.location.uri
 				};
 
-				if (!conversation.articles) {
-					conversation.articles = [article];
-				} else {
-					conversation.articles.push(article);
-				}
-
-
-	console.log('\n\nloadFullContent:', url, article, '\n\n');
-
-				if (!conversation.articles) conversation.articles = [];
-
 				conversation.articles.push(article);
 
 
