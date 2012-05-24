@@ -92,22 +92,44 @@ function loadFullContent(conversation, url) {
 function search(conversation) {
 
 	var queryParams = [],
-	    queryString,
-	    tags = [];
+		queryString,
+		tags = [];
 
 	console.log('\n\nConversation:', conversation, '\n\n');
 
 	// The tags property is an object, keyed by OpenCalais tag ID
-	Object.keys(conversation.tags).map(function(id) {
+	function compare(a,b) {
+		if (parseInt(a.count,10) < parseInt(b.count,10)) {
+			return -1;
+		}
+		if (parseInt(a.count,10) > parseInt(b.count,10)) {
+			return 1;
+		}
+		return 0;
+	}
 
-		var tag = conversation.tags[id];
+	var tagsArray = [];
+
+	Object.keys(conversation.tags).map(function(id) {
+		tagsArray.push(conversation.tags[id]);
+	});
+
+	tagsArray.sort(compare);
+
+	conversation.tags = {};
+	var id=0;
+	while(id < 3 && tagsArray[id]){
+		var tag = tagsArray[id];
 
 		if (tag.type === 'generic') {
 			return;
 		}
 
+		conversation.tags[id] = tag;
+
 		queryParams.push(tag.type + ':"' + tag.name + '"');
-	});
+		id++;
+	}
 
 	if (!queryParams.length) {
 		return;
@@ -115,6 +137,7 @@ function search(conversation) {
 
 	queryString = queryParams.join(' AND ');
 	queryString += ' AND (initialPublishDateTime:>2012-05-16T00:00:00Z)';
+
 
 /*
 	Valid query fields:
